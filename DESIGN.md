@@ -14,19 +14,19 @@ colors:
   error: "#9B3F30"
 typography:
   display:
-    fontFamily: "Newsreader, Georgia, serif"
+    fontFamily: "Gambarino, Georgia, serif"
     fontSize: "clamp(3rem, 4.45vw, 4.9rem)"
     fontWeight: 400
     lineHeight: 0.98
     letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Newsreader, Georgia, serif"
+    fontFamily: "Gambarino, Georgia, serif"
     fontSize: "clamp(2.1rem, 3vw, 3.55rem)"
     fontWeight: 400
     lineHeight: 1.04
     letterSpacing: "-0.025em"
   title:
-    fontFamily: "Newsreader, Georgia, serif"
+    fontFamily: "Gambarino, Georgia, serif"
     fontSize: "clamp(1.55rem, 2.3vw, 2.25rem)"
     fontWeight: 400
     lineHeight: 1.08
@@ -133,10 +133,13 @@ The palette comes from Eunice’s dining-room olive and the natural materials of
 
 ## Typography
 
-**Display Font:** Newsreader (with Georgia fallback)  
+**Heading Font:** Gambarino (with Georgia fallback)
+
+**Supporting Serif:** Newsreader (with Georgia fallback)
+
 **Body Font:** DM Sans (with sans-serif fallback)
 
-**Character:** Newsreader gives Eunice’s voice a calm, human cadence; DM Sans keeps practical information and forms direct. The pairing should feel like a considered conversation, not a magazine cover.
+**Character:** Gambarino gives headings a more distinctive, softly sculpted voice while Newsreader remains in supporting serif details and DM Sans keeps practical information direct. The combination should feel personal and composed, not ornamental or fashion-led.
 
 ### Hierarchy
 

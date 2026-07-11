@@ -73,7 +73,7 @@
       "kind": "card",
       "description": "A square, tonally separated block for online or in-person session details.",
       "html": "<article class=\"ds-logistics\"><span class=\"ds-logistics-label\">In person</span><h3>Journey 2 Grow Therapy</h3><p>233 Mt. Airy Rd.<br>Suite 100 – Room 103<br>Basking Ridge, NJ 07920</p></article>",
-      "css": ".ds-logistics { min-height: 300px; display: grid; align-content: end; padding: 40px; border: 0; border-radius: 0; background: #586B45; color: #fff; } .ds-logistics-label { margin-bottom: 12px; color: #E6EECD; font: 600 14px/1.4 'DM Sans', sans-serif; } .ds-logistics h3 { max-width: 14ch; margin: 0 0 16px; font: 400 34px/1.08 'Newsreader', Georgia, serif; letter-spacing: -.02em; } .ds-logistics p { margin: 0; color: #E5E9E0; font: 400 14px/1.7 'DM Sans', sans-serif; }"
+      "css": ".ds-logistics { min-height: 300px; display: grid; align-content: end; padding: 40px; border: 0; border-radius: 0; background: #586B45; color: #fff; } .ds-logistics-label { margin-bottom: 12px; color: #E6EECD; font: 600 14px/1.4 'DM Sans', sans-serif; } .ds-logistics h3 { max-width: 14ch; margin: 0 0 16px; font: 400 34px/1.08 'Gambarino', Georgia, serif; letter-spacing: -.02em; } .ds-logistics p { margin: 0; color: #E5E9E0; font: 400 14px/1.7 'DM Sans', sans-serif; }"
     },
     {
       "name": "Navigation",

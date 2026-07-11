@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
 
+@font-face {
+  font-family: 'Gambarino';
+  src: url('/Gambarino_Complete/Fonts/WEB/fonts/Gambarino-Regular.woff2') format('woff2'),
+       url('/Gambarino_Complete/Fonts/WEB/fonts/Gambarino-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   --olive: #586b45;
   --olive-dark: #344029;
@@ -27,7 +36,7 @@ a { color: inherit; }
 img { display: block; max-width: 100%; }
 h1, h2, h3, p { margin-top: 0; }
 h1, h2, h3 { text-wrap: balance; }
-h1, h2 { font-family: 'Newsreader', Georgia, serif; font-weight: 400; letter-spacing: -0.025em; }
+h1, h2 { font-family: 'Gambarino', Georgia, serif; font-weight: 400; letter-spacing: -0.025em; }
 h1 { font-size: clamp(3rem, 4.45vw, 4.9rem); line-height: 0.98; }
 h2 { font-size: clamp(2.1rem, 3vw, 3.55rem); line-height: 1.04; }
 h3 { font-weight: 500; }
@@ -96,7 +105,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .support-list { margin: 0; padding: 0; border-top: 1px solid rgba(255,255,255,.24); list-style: none; }
 .support-item { min-height: 118px; display: grid; grid-template-columns: 70px minmax(180px, .8fr) minmax(0, 1.3fr); gap: 28px; align-items: center; border-bottom: 1px solid rgba(255,255,255,.24); }
 .support-item > span { color: var(--tan); font-size: .72rem; }
-.support-item h3 { margin: 0; font-family: 'Newsreader', serif; font-size: clamp(1.55rem, 2.3vw, 2.25rem); font-weight: 400; }
+.support-item h3 { margin: 0; font-family: 'Gambarino', Georgia, serif; font-size: clamp(1.55rem, 2.3vw, 2.25rem); font-weight: 400; }
 .support-item p { max-width: 480px; margin: 0; color: #e5e9e0; font-size: .88rem; }
 
 .expect { background: var(--paper); }
@@ -106,7 +115,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .expect-sticky > p:last-child { max-width: 480px; color: var(--muted); }
 .session-steps > article { display: grid; grid-template-columns: 52px 1fr; gap: 25px; padding: 0 0 48px; margin-bottom: 48px; border-bottom: 1px solid var(--line); }
 .session-steps > article > span { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--olive); border-radius: 50%; color: var(--olive); font-size: .68rem; }
-.session-steps h3 { margin: 3px 0 13px; font-family: 'Newsreader', serif; font-size: 1.75rem; font-weight: 400; }
+.session-steps h3 { margin: 3px 0 13px; font-family: 'Gambarino', Georgia, serif; font-size: 1.75rem; font-weight: 400; }
 .session-steps p { margin: 0; color: var(--muted); }
 .approach-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
 .approach-cloud span { padding: 11px 16px; border: 1px solid var(--line); border-radius: 100px; color: #4d5646; font-size: .74rem; }
@@ -131,7 +140,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .logistics-grid .office-card > svg { color: var(--tan); }
 .card-kicker { margin-bottom: 12px; color: var(--olive); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .office-card .card-kicker { color: var(--tan); }
-.logistics-grid h3 { max-width: 16ch; margin-bottom: 15px; font-family: 'Newsreader', serif; font-size: clamp(1.7rem, 2.5vw, 2.45rem); font-weight: 400; line-height: 1.08; }
+.logistics-grid h3 { max-width: 16ch; margin-bottom: 15px; font-family: 'Gambarino', Georgia, serif; font-size: clamp(1.7rem, 2.5vw, 2.45rem); font-weight: 400; line-height: 1.08; }
 .logistics-grid p:last-child, .logistics-grid address { max-width: 480px; margin: 0; color: #5a6253; font-size: .86rem; font-style: normal; line-height: 1.7; }
 .office-card address { color: #e1e6db; }
 
