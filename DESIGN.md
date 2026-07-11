@@ -26,10 +26,10 @@ typography:
     lineHeight: 1.04
     letterSpacing: "-0.025em"
   title:
-    fontFamily: "Gambarino, Georgia, serif"
-    fontSize: "clamp(1.55rem, 2.3vw, 2.25rem)"
-    fontWeight: 400
-    lineHeight: 1.08
+    fontFamily: "DM Sans, sans-serif"
+    fontSize: "clamp(1.4rem, 2vw, 1.9rem)"
+    fontWeight: 600
+    lineHeight: 1.16
   body:
     fontFamily: "DM Sans, sans-serif"
     fontSize: "1rem"
@@ -135,17 +135,15 @@ The palette comes from Eunice’s dining-room olive and the natural materials of
 
 **Heading Font:** Gambarino (with Georgia fallback)
 
-**Supporting Serif:** Newsreader (with Georgia fallback)
-
 **Body Font:** DM Sans (with sans-serif fallback)
 
-**Character:** Gambarino gives headings a more distinctive, softly sculpted voice while Newsreader remains in supporting serif details and DM Sans keeps practical information direct. The combination should feel personal and composed, not ornamental or fashion-led.
+**Character:** Gambarino is reserved for H1 and H2 statements, giving the major hierarchy a distinctive, softly sculpted voice. DM Sans carries H3 titles, supporting details, and body copy with practical clarity. Keeping the system to two families makes it feel personal and composed without becoming ornamental.
 
 ### Hierarchy
 
 - **Display** (400, fluid 3rem–4.9rem, 0.98): Hero statements only. Cap line width near 13 characters and reduce to approximately 2.65rem–3.35rem on mobile.
 - **Headline** (400, fluid 2.1rem–3.55rem, 1.04): Section introductions and major booking-page statements. On mobile, use 2rem–2.65rem so section headings remain clearly subordinate to the hero.
-- **Title** (400, fluid 1.55rem–2.25rem, 1.08): Support topics, session steps, and logistics titles.
+- **Title** (600, fluid 1.4rem–2rem, 1.16): DM Sans H3 headings for support topics, session steps, and logistics titles.
 - **Body** (400, 1rem, 1.7): Explanations and guidance, normally capped between 60 and 70 characters per line.
 - **Label** (600, 0.875rem, 0.01em, sentence case): Eyebrows, field labels, navigation, and short metadata. Avoid automatic uppercase and wide tracking.
 
