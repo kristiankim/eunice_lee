@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-11T00:00:00-04:00",
+  "title": "Design System: Journey 2 Grow Therapy",
+  "extensions": {
+    "colorMeta": {
+      "dining-room-olive": { "role": "primary", "displayName": "Dining Room Olive", "canonical": "#586B45", "tonalRamp": ["#1A2114", "#2A351F", "#3D4B2F", "#586B45", "#788D62", "#A1B28C", "#CBD6BB", "#EEF2E8"] },
+      "deep-olive": { "role": "primary", "displayName": "Deep Olive", "canonical": "#344029", "tonalRamp": ["#14190F", "#222A1B", "#344029", "#4D5C3D", "#718164", "#9DAA92", "#CBD2C5", "#F0F2ED"] },
+      "soft-leaf": { "role": "secondary", "displayName": "Soft Leaf", "canonical": "#E6EECD", "tonalRamp": ["#202615", "#394428", "#59693E", "#7D915A", "#A5B77D", "#C9D6A7", "#E6EECD", "#F6F8ED"] },
+      "warm-white": { "role": "neutral", "displayName": "Warm White", "canonical": "#EDEAE4", "tonalRamp": ["#24231F", "#44423C", "#69665F", "#918D85", "#B8B4AC", "#D7D3CD", "#EDEAE4", "#FAF9F7"] },
+      "linen": { "role": "neutral", "displayName": "Linen", "canonical": "#E8E3D9", "tonalRamp": ["#25231E", "#454139", "#6C665C", "#948C80", "#BAB2A7", "#D6D0C7", "#E8E3D9", "#F8F6F2"] },
+      "quiet-surface": { "role": "neutral", "displayName": "Quiet Surface", "canonical": "#F6F3ED", "tonalRamp": ["#25231E", "#48443D", "#706B62", "#9B958B", "#C2BDB4", "#DFDBD4", "#F6F3ED", "#FCFBF9"] },
+      "dark-olive": { "role": "neutral", "displayName": "Dark Olive", "canonical": "#1A1F14", "tonalRamp": ["#10130C", "#1A1F14", "#303829", "#4F5945", "#75806A", "#A0A99A", "#CDD2C9", "#F1F3EF"] },
+      "muted-olive": { "role": "neutral", "displayName": "Muted Olive", "canonical": "#5C6653", "tonalRamp": ["#171B14", "#2D3428", "#46503E", "#5C6653", "#7E8974", "#A5AE9D", "#CDD2C8", "#F0F2ED"] },
+      "hairline": { "role": "neutral", "displayName": "Olive Hairline", "canonical": "#1A1F1426", "tonalRamp": ["#1A1F1426", "#30382933", "#4F594540", "#75806A4D", "#A0A99A59", "#CDD2C966", "#E3E6E070", "#F1F3EF80"] },
+      "error": { "role": "tertiary", "displayName": "Grounded Error", "canonical": "#9B3F30", "tonalRamp": ["#2A0D09", "#4B1710", "#70251B", "#9B3F30", "#BE6758", "#D9988D", "#ECC7C1", "#FAEEEC"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero statements balanced against portraiture." },
+      "headline": { "displayName": "Headline", "purpose": "Major section and booking-page introductions." },
+      "title": { "displayName": "Title", "purpose": "Support topics, steps, and logistics headings." },
+      "body": { "displayName": "Body", "purpose": "Practical explanatory copy and guidance." },
+      "label": { "displayName": "Label", "purpose": "Sentence-case navigation, metadata, and field labels." }
+    },
+    "shadows": [
+      { "name": "form-lift", "value": "0 24px 60px -38px rgba(57, 66, 46, 0.35)", "purpose": "Structural lift for the primary booking form only." }
+    ],
+    "motion": [
+      { "name": "ease-expo-out", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "Entrance reveals and tactile movement." },
+      { "name": "reveal", "value": "opacity 800ms, translateY(28px) 800ms", "purpose": "One-time scroll arrival for section content." },
+      { "name": "control", "value": "transform 280ms, background 280ms", "purpose": "Buttons and interactive state changes." }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "920px" },
+      { "name": "mobile", "value": "680px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main consultation action on light surfaces.",
+      "html": "<button class=\"ds-btn-primary\">Request a consultation <span aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-btn-primary { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 0 22px; border: 0; border-radius: 2px; background: var(--olive, #586B45); color: #fff; font: 600 14px/1.4 'DM Sans', sans-serif; cursor: pointer; transition: transform .28s cubic-bezier(.16,1,.3,1), background .28s ease; } .ds-btn-primary:hover { background: var(--olive-dark, #344029); transform: translateY(-2px); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 3px solid #1A1F14; outline-offset: 3px; }"
+    },
+    {
+      "name": "Light Button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "A consultation action on dark olive or photographic surfaces.",
+      "html": "<button class=\"ds-btn-light\">Send an inquiry <span aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-btn-light { min-height: 50px; display: inline-flex; align-items: center; gap: 16px; padding: 0 22px; border: 0; border-radius: 2px; background: var(--tan, #E6EECD); color: #1A1F14; font: 600 14px/1.4 'DM Sans', sans-serif; cursor: pointer; transition: transform .28s cubic-bezier(.16,1,.3,1), background .28s ease; } .ds-btn-light:hover { background: #F0F5DF; transform: translateY(-2px); } .ds-btn-light:focus-visible { outline: 3px solid #1A1F14; outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "A plainspoken labeled field for consultation details.",
+      "html": "<label class=\"ds-field\"><span>Name</span><input type=\"text\" placeholder=\"Your name\"></label>",
+      "css": ".ds-field { display: grid; gap: 8px; color: #1A1F14; font: 600 14px/1.4 'DM Sans', sans-serif; } .ds-field input { min-height: 48px; padding: 10px 0; border: 0; border-bottom: 1px solid #5C6653; border-radius: 0; background: transparent; color: #1A1F14; font: 400 16px/1.5 'DM Sans', sans-serif; } .ds-field input::placeholder { color: #5C6653; } .ds-field input:focus-visible { outline: 3px solid #586B45; outline-offset: 3px; border-color: #586B45; }"
+    },
+    {
+      "name": "Approach Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "A static method label that never appears selectable.",
+      "html": "<span class=\"ds-chip\">Person-centered</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; min-height: 38px; padding: 0 16px; border: 1px solid rgba(26,31,20,.15); border-radius: 999px; background: transparent; color: #5C6653; font: 600 14px/1.4 'DM Sans', sans-serif; }"
+    },
+    {
+      "name": "Logistics Card",
+      "kind": "card",
+      "description": "A square, tonally separated block for online or in-person session details.",
+      "html": "<article class=\"ds-logistics\"><span class=\"ds-logistics-label\">In person</span><h3>Journey 2 Grow Therapy</h3><p>233 Mt. Airy Rd.<br>Suite 100 – Room 103<br>Basking Ridge, NJ 07920</p></article>",
+      "css": ".ds-logistics { min-height: 300px; display: grid; align-content: end; padding: 40px; border: 0; border-radius: 0; background: #586B45; color: #fff; } .ds-logistics-label { margin-bottom: 12px; color: #E6EECD; font: 600 14px/1.4 'DM Sans', sans-serif; } .ds-logistics h3 { max-width: 14ch; margin: 0 0 16px; font: 400 34px/1.08 'Newsreader', Georgia, serif; letter-spacing: -.02em; } .ds-logistics p { margin: 0; color: #E5E9E0; font: 400 14px/1.7 'DM Sans', sans-serif; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "A minimal wordmark, Home link, and consultation action.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-wordmark\" href=\"#\">Journey 2 Grow <small>Therapy</small></a><div><a href=\"#\">Home</a><button class=\"ds-nav-cta\">Book a consultation →</button></div></nav>",
+      "css": ".ds-nav { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 24px; color: #1A1F14; font: 500 14px/1.4 'DM Sans', sans-serif; } .ds-nav a { color: inherit; text-decoration: none; } .ds-wordmark { display: grid; font: 500 18px/1.05 'Newsreader', Georgia, serif; } .ds-wordmark small { margin-top: 5px; color: #5C6653; font: 600 10px/1.2 'DM Sans', sans-serif; letter-spacing: .14em; text-transform: uppercase; } .ds-nav > div { display: flex; align-items: center; gap: 28px; } .ds-nav-cta { min-height: 48px; padding: 0 20px; border: 0; border-radius: 2px; background: #586B45; color: #fff; font: inherit; } .ds-nav a:focus-visible, .ds-nav button:focus-visible { outline: 3px solid #586B45; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Welcoming Study",
+    "overview": "The interface should feel like entering a thoughtful, quietly furnished study where a serious conversation can begin without ceremony. It is calm and personal, but its warmth comes from clarity, natural materials, olive color, photography, and measured spacing—not wellness decoration. Every composition should feel practical before it feels styled. The system is bright, breathable, and deliberately square-edged, with mobile treated as an equal design surface.",
+    "keyCharacteristics": ["Practical, natural, and quietly personal", "Muted olive color used with confidence", "Classical serif hierarchy paired with plainspoken sans-serif copy", "Tonal layering and hairlines instead of decorative shadows", "Real portrait and interior photography as emotional evidence", "Restrained, one-time entrance motion with reduced-motion parity"],
+    "rules": [
+      { "name": "The Olive Commitment Rule", "body": "Dining Room Olive must carry meaningful surface area or interaction weight; never reduce it to tiny decorative accents scattered across a neutral page.", "section": "colors" },
+      { "name": "The Natural Warmth Rule", "body": "Warmth comes from olive, imagery, typography, and material texture. Never introduce unrelated beige, gold, peach, or dusty-pink accents.", "section": "colors" },
+      { "name": "The Calm Scale Rule", "body": "Display type must support the portrait and message rather than dominate the viewport. The hero headline ceiling is 4.9rem, and mobile display type never exceeds 3.35rem.", "section": "typography" },
+      { "name": "The Direct Heading Rule", "body": "Informational sections begin with a clear, literal heading and move directly into content. Reserve label–headline–blurb compositions for the hero or a genuinely distinct narrative moment; never repeat them as page scaffolding.", "section": "typography" },
+      { "name": "The Insurance Clarity Rule", "body": "Describe insurance as plan-specific until Eunice supplies and approves a current insurer list. Never imply universal acceptance, guaranteed coverage, or a known out-of-pocket cost; tell visitors what information to share and what they should confirm with their insurer.", "section": "content" },
+      { "name": "The Single Closing Rule", "body": "The final invitation belongs inside the image-backed footer. Keep one practical message, one supporting sentence, and one action above a distinct utility row for practice, office, navigation, and copyright details.", "section": "layout" },
+      { "name": "The Flat-by-Default Rule", "body": "If a container can be separated with tone, spacing, or a hairline, a shadow is prohibited.", "section": "elevation" }
+    ],
+    "dos": ["Do use Dining Room Olive as a committed brand surface and interaction color.", "Do keep the hero headline below 4.9rem and visually balanced with the 470px portrait.", "Do let informative sections begin with literal headings and move directly into useful content.", "Do use real portrait and interior photography with natural light and material texture.", "Do maintain WCAG 2.2 AA contrast, visible keyboard focus, semantic form labels, and reduced-motion support.", "Do treat mobile as an equal experience with 44px controls, at least 14px supporting text, and no horizontal overflow.", "Do use direct, practical language that makes beginning therapy feel manageable.", "Do style static information as static information, with semantic lists and no false interaction cues.", "Do combine the final invitation with the image-backed footer and keep legal and location information clearly separated below it."],
+    "donts": ["Don't resemble a cold medical portal.", "Don't use generic wellness or spa styling, including candles, pastel self-care clichés, or vague healing imagery.", "Don't introduce glossy large-agency polish, excessive animation, or cinematic effects that compete with trust.", "Don't use conversion-heavy sales-funnel patterns, urgency language, exaggerated claims, or manufactured proof.", "Don't use a display headline larger than the portrait’s visual weight.", "Don't repeat eyebrows or label–headline–blurb compositions as decorative scaffolding.", "Don't add promotional blurbs when the section title and content already explain the purpose.", "Don't place arrows or hover motion on support rows unless those rows become genuinely interactive.", "Don't stack a separate closing CTA directly above the footer.", "Don't add large rounded cards, decorative glass effects, gradient text, pure black, neon accents, or heavy shadows.", "Don't imply testimonials, affiliations, Korean translations, insurance details, or clinical claims that Eunice has not approved."]
+  }
+}
