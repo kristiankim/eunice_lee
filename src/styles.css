@@ -151,11 +151,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .footer-main .eyebrow { color: var(--tan); }
 .footer-main h2 { max-width: 19ch; margin-bottom: 30px; font-size: clamp(2.65rem, 4.7vw, 5.15rem); }
 .footer-main > p { max-width: 580px; margin: 0 0 38px; color: rgba(255,255,255,.82); font-size: .875rem; }
-.footer-bottom { display: grid; grid-template-columns: 1.1fr 1fr .45fr .9fr; gap: 40px; align-items: end; font-size: .8rem; }
+.footer-main > .footer-copyright { margin: 22px 0 0; color: rgba(255,255,255,.72); font-size: .75rem; }
+.footer-bottom { display: grid; grid-template-columns: 1fr 1fr .55fr; gap: 56px; align-items: end; font-size: .8rem; }
 .footer-detail { display: grid; gap: 6px; align-self: start; }
 .footer-detail > strong { color: #fff; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-.footer-bottom span, .footer-bottom address, .footer-bottom p { color: rgba(255,255,255,.9); font-style: normal; line-height: 1.6; }
-.footer-bottom p { margin: 0; text-align: right; }
+.footer-bottom span, .footer-bottom address { color: rgba(255,255,255,.9); font-style: normal; line-height: 1.6; }
 .footer-links > div { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
 .footer-links a { text-underline-offset: 4px; }
 

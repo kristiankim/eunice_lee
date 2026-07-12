@@ -220,7 +220,7 @@ The system is flat and tonally layered. Depth comes from adjacent olive, linen, 
 
 - The final invitation and site footer are one image-backed section, avoiding two consecutive calls to action.
 - The invitation leads with the practical “If you’re considering therapy…” message, followed by one supporting sentence and one consultation action.
-- Practice credentials, office address, navigation, and copyright information sit in a ruled utility row at the bottom of the image.
+- The complete copyright statement sits directly below the consultation CTA without a divider. Practice credentials, office address, and navigation remain grouped in the utility row at the bottom of the image.
 - Keep this ending useful and calm: one action, no promotional kicker, and no duplicate closing section above it.
 
 ### Motion
