@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
+import Lenis from 'lenis'
 import {
   ArrowRight,
   CalendarBlank,
@@ -22,6 +23,37 @@ const supportAreas = [
 ]
 
 const approaches = ['CBT', 'ACT', 'DBT', 'IFS', 'Attachment-based', 'Solution-focused', 'Person-centered', 'Trauma-focused']
+
+function SmoothScroll() {
+  useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let lenis
+
+    const configure = () => {
+      lenis?.destroy()
+      lenis = undefined
+      if (reduceMotion.matches) return
+
+      lenis = new Lenis({
+        autoRaf: true,
+        lerp: 0.085,
+        smoothWheel: true,
+        syncTouch: false,
+        wheelMultiplier: 0.9,
+      })
+    }
+
+    configure()
+    reduceMotion.addEventListener('change', configure)
+
+    return () => {
+      reduceMotion.removeEventListener('change', configure)
+      lenis?.destroy()
+    }
+  }, [])
+
+  return null
+}
 
 function ScrollReveal({ path }) {
   useLayoutEffect(() => {
@@ -376,5 +408,5 @@ export default function App() {
     robots.content = path === '/blog' ? 'noindex, nofollow' : 'index, follow'
   }, [path])
   const page = path === '/booking' ? <Booking onNavigate={setPath} /> : path === '/blog' ? <Blog /> : <Home onNavigate={setPath} />
-  return <><ScrollReveal path={path} /><Header onNavigate={setPath} />{page}<Footer onNavigate={setPath} /></>
+  return <><SmoothScroll /><ScrollReveal path={path} /><Header onNavigate={setPath} />{page}<Footer onNavigate={setPath} /></>
 }

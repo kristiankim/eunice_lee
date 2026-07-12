@@ -28,6 +28,7 @@
     "motion": [
       { "name": "ease-expo-out", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "Entrance reveals and tactile movement." },
       { "name": "reveal", "value": "opacity 800ms, translateY(28px) 800ms", "purpose": "One-time scroll arrival for section content." },
+      { "name": "smooth-scroll", "value": "Lenis lerp 0.085, wheelMultiplier 0.9", "purpose": "Restrained desktop wheel smoothing with native touch and reduced-motion fallbacks." },
       { "name": "control", "value": "transform 280ms, background 280ms", "purpose": "Buttons and interactive state changes." }
     ],
     "breakpoints": [

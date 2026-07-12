@@ -227,6 +227,7 @@ The system is flat and tonally layered. Depth comes from adjacent olive, linen, 
 
 - Initial navigation and hero elements enter once with restrained upward movement.
 - Scrolled content reveals once through opacity and a 28px upward translation using `cubic-bezier(.16, 1, .3, 1)`.
+- Desktop wheel scrolling uses Lenis with restrained interpolation (`lerp: 0.085`) and a slightly reduced wheel multiplier. Touch scrolling remains native rather than simulated.
 - Reduced-motion users receive immediate content with no meaningful movement. Content must remain readable even if animation does not execute.
 
 ## Do's and Don'ts
