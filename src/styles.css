@@ -142,19 +142,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .logistics-grid p:last-child, .logistics-grid address { max-width: 480px; margin: 0; color: #5a6253; font-size: .86rem; font-style: normal; line-height: 1.7; }
 .office-card address { color: #e1e6db; }
 
-.site-footer { position: relative; min-height: 820px; overflow: hidden; color: #fff; background: var(--olive-dark); }
+.site-footer { position: relative; overflow: hidden; color: #fff; background: var(--olive-dark); }
 .footer-image, .footer-overlay { position: absolute; inset: 0; }
 .footer-image { background: url('/images/cozy-therapy-room.jpg') center 54% / cover no-repeat; transform: scale(1.015); }
 .footer-overlay { background: linear-gradient(90deg, rgba(20,27,16,.88) 0%, rgba(20,27,16,.54) 50%, rgba(20,27,16,.22) 100%), linear-gradient(0deg, rgba(20,27,16,.78), transparent 50%); }
-.footer-content { position: relative; min-height: 820px; display: grid; align-content: space-between; padding-block: 128px 42px; }
+.footer-content { position: relative; display: flex; flex-direction: column; padding-block: 112px; }
+.footer-primary { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, .55fr); gap: clamp(64px, 10vw, 150px); align-items: end; }
 .footer-main { max-width: 800px; }
 .footer-main .eyebrow { color: var(--tan); }
 .footer-main h2 { max-width: 19ch; margin-bottom: 38px; font-size: clamp(2.65rem, 4.7vw, 5.15rem); }
 .footer-heading-context, .footer-heading-action { display: block; }
 .footer-heading-context { max-width: 25ch; margin-bottom: .28em; color: rgba(255,255,255,.72); font-size: .56em; line-height: 1.14; letter-spacing: -.01em; }
 .footer-heading-action { line-height: 1.02; }
-.footer-main > .footer-copyright { max-width: 580px; margin: 28px 0 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.32); color: rgba(255,255,255,.72); font-size: .75rem; }
-.footer-bottom { display: grid; grid-template-columns: 1fr 1fr .55fr; gap: 56px; align-items: end; font-size: .8rem; }
+.footer-hours { max-width: 340px; padding-bottom: 4px; }
+.footer-hours > strong { display: block; margin-bottom: 14px; color: var(--tan); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.footer-hours > p { margin: 0 0 20px; color: rgba(255,255,255,.78); font-size: .8rem; line-height: 1.6; }
+.footer-hours dl { display: grid; gap: 14px; margin: 0; }
+.footer-hours dl > div { display: grid; gap: 3px; }
+.footer-hours dt { color: #fff; font-size: .8rem; font-weight: 600; }
+.footer-hours dd { margin: 0; color: rgba(255,255,255,.78); font-size: .8rem; }
+.footer-copyright { width: 100%; margin: 64px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.32); color: rgba(255,255,255,.72); font-size: .75rem; }
+.footer-bottom { display: grid; grid-template-columns: 1fr 1fr .55fr; gap: 56px; align-items: end; margin-top: 56px; font-size: .8rem; }
 .footer-detail { display: grid; gap: 6px; align-self: start; }
 .footer-detail > strong { color: #fff; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .footer-bottom span, .footer-bottom address { color: rgba(255,255,255,.9); font-style: normal; line-height: 1.6; }
@@ -283,11 +291,14 @@ input[type='radio'], input[type='checkbox'] { width: 16px; height: 16px; margin:
   .session-steps > article { grid-template-columns: 42px 1fr; gap: 18px; }
   .logistics-grid { grid-template-columns: 1fr; gap: 16px; }
   .logistics-grid article { min-height: 330px; }
-  .site-footer, .footer-content { min-height: 760px; }
-  .footer-content { padding-block: 92px 32px; }
+  .footer-content { padding-block: 80px; }
+  .footer-primary { grid-template-columns: 1fr; gap: 64px; align-items: start; }
+  .footer-hours { max-width: 100%; }
+  .footer-hours > strong, .footer-hours > p, .footer-hours dt, .footer-hours dd, .footer-copyright { font-size: .875rem; }
   .footer-image { background-position: 62% center; }
   .footer-overlay { background: linear-gradient(0deg, rgba(20,27,16,.9), rgba(20,27,16,.35) 70%, rgba(20,27,16,.5)); }
   .footer-main h2 { max-width: 14ch; font-size: clamp(2.25rem, 10vw, 2.65rem); }
+  .footer-copyright { margin-top: 52px; }
   .footer-bottom { grid-template-columns: 1fr; gap: 20px; font-size: .875rem; }
   .footer-detail > strong { font-size: .875rem; letter-spacing: .06em; }
   .booking-hero h1 { margin-bottom: 0; }

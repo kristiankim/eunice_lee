@@ -72,6 +72,8 @@ function ScrollReveal({ path }) {
       '.booking-grid > *',
       '.blog-page .page-shell > *',
       '.footer-main > *',
+      '.footer-hours',
+      '.footer-copyright',
       '.footer-bottom > *',
     ].join(',')
     const elements = [...document.querySelectorAll(selector)]
@@ -374,11 +376,21 @@ function Footer({ onNavigate }) {
       <div className="footer-image" aria-hidden="true" />
       <div className="footer-overlay" />
       <div className="page-shell footer-content">
-        <div className="footer-main">
-          <h2><span className="footer-heading-context">If you’re considering therapy but not sure where to begin,</span><span className="footer-heading-action">start with a brief conversation.</span></h2>
-          <ButtonLink onNavigate={onNavigate} light>Send an inquiry</ButtonLink>
-          <p className="footer-copyright">© {new Date().getFullYear()} Journey 2 Grow Therapy. All rights reserved.</p>
+        <div className="footer-primary">
+          <div className="footer-main">
+            <h2><span className="footer-heading-context">If you’re considering therapy but not sure where to begin,</span><span className="footer-heading-action">start with a brief conversation.</span></h2>
+            <ButtonLink onNavigate={onNavigate} light>Send an inquiry</ButtonLink>
+          </div>
+          <aside className="footer-hours">
+            <strong>Office hours</strong>
+            <p>Before requesting a consultation, please note:</p>
+            <dl>
+              <div><dt>Monday, Tuesday &amp; Friday</dt><dd>9:30 AM–3:00 PM</dd></div>
+              <div><dt>Wednesday &amp; Thursday</dt><dd>9:30 AM–5:30 PM</dd></div>
+            </dl>
+          </aside>
         </div>
+        <p className="footer-copyright">© {new Date().getFullYear()} Journey 2 Grow Therapy. All rights reserved.</p>
         <div className="footer-bottom">
           <div className="footer-detail"><strong>Practice</strong><span>Eunice Lee, LCSW</span><span>Licensed in New York &amp; New Jersey</span></div>
           <div className="footer-detail"><strong>Office</strong><address>233 Mt. Airy Rd., Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div>

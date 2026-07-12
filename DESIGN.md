@@ -220,7 +220,9 @@ The system is flat and tonally layered. Depth comes from adjacent olive, linen, 
 
 - The final invitation and site footer are one image-backed section, avoiding two consecutive calls to action.
 - The invitation is one H2 with two typographic levels: the setup (“If you’re considering therapy…”) is smaller and quieter, while “start with a brief conversation” retains the full headline scale. It moves directly to one consultation action with no supporting paragraph.
-- The complete copyright statement sits directly below the consultation CTA, separated by a quiet divider limited to the footer copy width. Practice credentials, office address, and navigation remain grouped in the utility row at the bottom of the image.
+- The invitation occupies the left of the footer’s upper grid. A plainspoken office-hours schedule sits on the right: Monday, Tuesday, and Friday from 9:30 AM–3:00 PM; Wednesday and Thursday from 9:30 AM–5:30 PM.
+- The complete copyright statement follows the upper grid behind a quiet full-content-width divider. Practice credentials, office address, and navigation remain grouped in the utility row below it.
+- Use equal top and bottom padding around the footer composition so the final legal and utility information never feels stranded against the lower edge.
 - Keep this ending useful and calm: one action, no promotional kicker, and no duplicate closing section above it.
 
 ### Motion
