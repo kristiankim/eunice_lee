@@ -149,8 +149,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .footer-content { position: relative; min-height: 820px; display: grid; align-content: space-between; padding-block: 128px 42px; }
 .footer-main { max-width: 800px; }
 .footer-main .eyebrow { color: var(--tan); }
-.footer-main h2 { max-width: 19ch; margin-bottom: 30px; font-size: clamp(2.65rem, 4.7vw, 5.15rem); }
-.footer-main > p { max-width: 580px; margin: 0 0 38px; color: rgba(255,255,255,.82); font-size: .875rem; }
+.footer-main h2 { max-width: 19ch; margin-bottom: 38px; font-size: clamp(2.65rem, 4.7vw, 5.15rem); }
+.footer-heading-context, .footer-heading-action { display: block; }
+.footer-heading-context { max-width: 25ch; margin-bottom: .28em; color: rgba(255,255,255,.72); font-size: .56em; line-height: 1.14; letter-spacing: -.01em; }
+.footer-heading-action { line-height: 1.02; }
 .footer-main > .footer-copyright { max-width: 580px; margin: 28px 0 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.32); color: rgba(255,255,255,.72); font-size: .75rem; }
 .footer-bottom { display: grid; grid-template-columns: 1fr 1fr .55fr; gap: 56px; align-items: end; font-size: .8rem; }
 .footer-detail { display: grid; gap: 6px; align-self: start; }

@@ -375,8 +375,7 @@ function Footer({ onNavigate }) {
       <div className="footer-overlay" />
       <div className="page-shell footer-content">
         <div className="footer-main">
-          <h2>If you’re considering therapy but not sure where to begin, start with a brief conversation.</h2>
-          <p>Share a little about what you’re looking for, and Eunice will follow up by email or text.</p>
+          <h2><span className="footer-heading-context">If you’re considering therapy but not sure where to begin,</span><span className="footer-heading-action">start with a brief conversation.</span></h2>
           <ButtonLink onNavigate={onNavigate} light>Send an inquiry</ButtonLink>
           <p className="footer-copyright">© {new Date().getFullYear()} Journey 2 Grow Therapy. All rights reserved.</p>
         </div>

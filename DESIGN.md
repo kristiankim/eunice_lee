@@ -219,7 +219,7 @@ The system is flat and tonally layered. Depth comes from adjacent olive, linen, 
 ### Closing Footer
 
 - The final invitation and site footer are one image-backed section, avoiding two consecutive calls to action.
-- The invitation leads with the practical “If you’re considering therapy…” message, followed by one supporting sentence and one consultation action.
+- The invitation is one H2 with two typographic levels: the setup (“If you’re considering therapy…”) is smaller and quieter, while “start with a brief conversation” retains the full headline scale. It moves directly to one consultation action with no supporting paragraph.
 - The complete copyright statement sits directly below the consultation CTA, separated by a quiet divider limited to the footer copy width. Practice credentials, office address, and navigation remain grouped in the utility row at the bottom of the image.
 - Keep this ending useful and calm: one action, no promotional kicker, and no duplicate closing section above it.
 
