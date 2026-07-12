@@ -108,7 +108,7 @@ function RouteLink({ href, onNavigate, className = '', children }) {
   )
 }
 
-function Header({ path, onNavigate }) {
+function Header({ onNavigate }) {
   const [open, setOpen] = useState(false)
   return (
     <header className="site-header">
@@ -118,7 +118,6 @@ function Header({ path, onNavigate }) {
           <span className="wordmark-copy"><strong>Journey 2 Grow</strong><small>Therapy</small></span>
         </RouteLink>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <RouteLink href="/" onNavigate={onNavigate} className={path === '/' ? 'active' : ''}>Home</RouteLink>
           <RouteLink href="/booking" onNavigate={onNavigate} className="nav-cta">Book a consultation <ArrowRight size={16} weight="bold" /></RouteLink>
         </nav>
         <button className="menu-button" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
@@ -377,5 +376,5 @@ export default function App() {
     robots.content = path === '/blog' ? 'noindex, nofollow' : 'index, follow'
   }, [path])
   const page = path === '/booking' ? <Booking onNavigate={setPath} /> : path === '/blog' ? <Blog /> : <Home onNavigate={setPath} />
-  return <><ScrollReveal path={path} /><Header path={path} onNavigate={setPath} />{page}<Footer onNavigate={setPath} /></>
+  return <><ScrollReveal path={path} /><Header onNavigate={setPath} />{page}<Footer onNavigate={setPath} /></>
 }

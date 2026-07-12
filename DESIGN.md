@@ -195,8 +195,8 @@ The system is flat and tonally layered. Depth comes from adjacent olive, linen, 
 
 ### Navigation
 
-- The navigation is minimal: wordmark, Home, and the consultation CTA. Blog remains hidden until approved for launch.
-- Active text uses a quiet underline. Mobile collapses to a 44px menu control and a simple stacked list with hairline separation.
+- The desktop navigation is minimal: a wordmark that links home and one consultation CTA. Do not repeat “Home” beside the wordmark. Blog remains hidden until approved for launch.
+- Mobile retains an explicit Home item for wayfinding and collapses to a 44px menu control with a simple stacked list and hairline separation.
 
 ### Portrait Composition
 

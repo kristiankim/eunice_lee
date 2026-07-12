@@ -78,8 +78,8 @@
     {
       "name": "Navigation",
       "kind": "nav",
-      "description": "A minimal wordmark, Home link, and consultation action.",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-wordmark\" href=\"#\">Journey 2 Grow <small>Therapy</small></a><div><a href=\"#\">Home</a><button class=\"ds-nav-cta\">Book a consultation →</button></div></nav>",
+      "description": "A minimal wordmark that links home and one consultation action; the desktop navigation does not repeat a Home link.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-wordmark\" href=\"#\">Journey 2 Grow <small>Therapy</small></a><div><button class=\"ds-nav-cta\">Book a consultation →</button></div></nav>",
       "css": ".ds-nav { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 24px; color: #1A1F14; font: 500 14px/1.4 'DM Sans', sans-serif; } .ds-nav a { color: inherit; text-decoration: none; } .ds-wordmark { display: grid; font: 600 16px/1.05 'DM Sans', sans-serif; } .ds-wordmark small { margin-top: 5px; color: #5C6653; font: 600 10px/1.2 'DM Sans', sans-serif; letter-spacing: .14em; text-transform: uppercase; } .ds-nav > div { display: flex; align-items: center; gap: 28px; } .ds-nav-cta { min-height: 48px; padding: 0 20px; border: 0; border-radius: 2px; background: #586B45; color: #fff; font: inherit; } .ds-nav a:focus-visible, .ds-nav button:focus-visible { outline: 3px solid #586B45; outline-offset: 3px; }"
     }
   ],
