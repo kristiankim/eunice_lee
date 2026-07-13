@@ -161,8 +161,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .footer-hours dl > div { display: grid; gap: 3px; }
 .footer-hours dt { color: #fff; font-size: .8rem; font-weight: 600; }
 .footer-hours dd { margin: 0; color: rgba(255,255,255,.78); font-size: .8rem; }
-.footer-copyright { width: 100%; margin: 64px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.32); color: rgba(255,255,255,.72); font-size: .75rem; }
-.footer-bottom { display: grid; grid-template-columns: 1fr 1fr .55fr; gap: 56px; align-items: end; margin-top: 56px; font-size: .8rem; }
+.footer-bottom { display: grid; grid-template-columns: 1fr 1fr .55fr; gap: 56px; align-items: end; margin-top: 64px; font-size: .8rem; }
+.footer-copyright { width: 100%; margin: 56px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.32); color: rgba(255,255,255,.72); font-size: .75rem; }
 .footer-detail { display: grid; gap: 6px; align-self: start; }
 .footer-detail > strong { color: #fff; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .footer-bottom span, .footer-bottom address { color: rgba(255,255,255,.9); font-style: normal; line-height: 1.6; }
@@ -298,7 +298,8 @@ input[type='radio'], input[type='checkbox'] { width: 16px; height: 16px; margin:
   .footer-image { background-position: 62% center; }
   .footer-overlay { background: linear-gradient(0deg, rgba(20,27,16,.9), rgba(20,27,16,.35) 70%, rgba(20,27,16,.5)); }
   .footer-main h2 { max-width: 14ch; font-size: clamp(2.25rem, 10vw, 2.65rem); }
-  .footer-copyright { margin-top: 52px; }
+  .footer-bottom { margin-top: 52px; }
+  .footer-copyright { margin-top: 44px; }
   .footer-bottom { grid-template-columns: 1fr; gap: 20px; font-size: .875rem; }
   .footer-detail > strong { font-size: .875rem; letter-spacing: .06em; }
   .booking-hero h1 { margin-bottom: 0; }
