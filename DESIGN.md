@@ -195,7 +195,7 @@ The system is flat and tonally layered. Depth comes from adjacent olive, linen, 
 
 ### Navigation
 
-- The desktop navigation is minimal: a wordmark that links home and one consultation CTA. Do not repeat “Home” beside the wordmark. Blog remains hidden until approved for launch.
+- The desktop navigation uses the approved `J2G_Logo.svg` lockup as a homepage link alongside one consultation CTA. Render it at up to 268px wide on desktop and 210px on mobile without altering its aspect ratio. Do not repeat “Home” beside the logo. Blog remains hidden until approved for launch.
 - Mobile retains an explicit Home item for wayfinding and collapses to a 44px menu control with a simple stacked list and hairline separation.
 
 ### Portrait Composition

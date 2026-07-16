@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import Lenis from 'lenis'
+import logoUrl from '../asset/J2G_Logo.svg'
 import {
   ArrowRight,
   CalendarBlank,
@@ -148,8 +149,7 @@ function Header({ onNavigate }) {
     <header className="site-header">
       <div className="nav-shell">
         <RouteLink href="/" onNavigate={onNavigate} className="wordmark" aria-label="Journey 2 Grow Therapy home">
-          <span className="wordmark-mark">J<span>2</span>G</span>
-          <span className="wordmark-copy"><strong>Journey 2 Grow</strong><small>Therapy</small></span>
+          <img className="wordmark-logo" src={logoUrl} alt="" width="268" height="45" />
         </RouteLink>
         <nav className="desktop-nav" aria-label="Primary navigation">
           <RouteLink href="/booking" onNavigate={onNavigate} className="nav-cta">Book a consultation <ArrowRight size={16} weight="bold" /></RouteLink>
