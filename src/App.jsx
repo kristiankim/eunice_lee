@@ -14,13 +14,13 @@ import {
 } from '@phosphor-icons/react'
 
 const supportAreas = [
-  ['01', 'Anxiety', 'Make space around worry and build steadier ways to respond.'],
-  ['02', 'Depression', 'Reconnect with energy, meaning, and a more workable daily rhythm.'],
-  ['03', 'Relationships', 'Understand patterns and practice clearer, healthier connection.'],
-  ['04', 'Life transitions', 'Find footing through change, uncertainty, and new chapters.'],
-  ['05', 'Immigration & adjustment', 'Process belonging, identity, and the strain of adaptation.'],
-  ['06', 'Self-esteem', 'Develop a kinder and more grounded relationship with yourself.'],
-  ['07', 'Anger management', 'Recognize triggers and build choices before reactions take over.'],
+  ['Anxiety', 'Make space around worry and build steadier ways to respond.', '/images/support/anxiety.png', '/images/support/anxiety@2x.png'],
+  ['Depression', 'Reconnect with energy, meaning, and a more workable daily rhythm.', '/images/support/depression.png', '/images/support/depression@2x.png'],
+  ['Relationships', 'Understand patterns and practice clearer, healthier connection.', '/images/support/relationships.png', '/images/support/relationships@2x.png'],
+  ['Life transitions', 'Find footing through change, uncertainty, and new chapters.', '/images/support/life-transitions.png', '/images/support/life-transitions@2x.png'],
+  ['Immigration & adjustment', 'Process belonging, identity, and the strain of adaptation.', '/images/support/immigration-adjustment.png', '/images/support/immigration-adjustment@2x.png'],
+  ['Self-esteem', 'Develop a kinder and more grounded relationship with yourself.', '/images/support/self-esteem.png', '/images/support/self-esteem@2x.png'],
+  ['Anger management', 'Recognize triggers and build choices before reactions take over.', '/images/support/anger-management.png', '/images/support/anger-management@2x.png'],
 ]
 
 const approaches = ['CBT', 'ACT', 'DBT', 'IFS', 'Attachment-based', 'Solution-focused', 'Person-centered', 'Trauma-focused']
@@ -62,7 +62,7 @@ function ScrollReveal({ path }) {
     const selector = [
       '.about-grid > *',
       '.section-heading > *',
-      '.support-item',
+      '.support-card',
       '.expect-grid > *',
       '.session-steps > article',
       '.approach-cloud',
@@ -229,11 +229,20 @@ function Home({ onNavigate }) {
 
       <section className="support section-pad" id="support">
         <div className="page-shell">
-          <div className="section-heading section-heading-direct"><h2>Areas of support</h2></div>
-          <ul className="support-list">
-            {supportAreas.map(([number, title, copy]) => (
-              <li className="support-item" key={title}>
-                <span>{number}</span><h3>{title}</h3><p>{copy}</p>
+          <div className="section-heading section-heading-direct support-heading">
+            <h2>Areas of support</h2>
+            <span aria-hidden="true" />
+          </div>
+          <ul className="support-grid">
+            {supportAreas.map(([title, copy, image, retinaImage]) => (
+              <li className="support-card" key={title}>
+                <div className="support-card-image">
+                  <img src={image} srcSet={`${image} 1x, ${retinaImage} 2x`} alt="" width="410" height="261" />
+                </div>
+                <div className="support-card-content">
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </div>
               </li>
             ))}
           </ul>
@@ -351,7 +360,7 @@ function Booking({ onNavigate }) {
                   <fieldset><legend>State / location *</legend><div className="choice-row"><label><input type="radio" name="state" value="NJ" /> NJ</label><label><input type="radio" name="state" value="NY" /> NY</label><label><input type="radio" name="state" value="Other" /> Other</label></div><FieldError>{errors.state}</FieldError></fieldset>
                   <fieldset><legend>Session preference *</legend><div className="choice-stack"><label><input type="radio" name="session" value="Online" /> Online</label><label><input type="radio" name="session" value="In person" /> In person in Basking Ridge</label><label><input type="radio" name="session" value="Not sure" /> Not sure</label></div><FieldError>{errors.session}</FieldError></fieldset>
                 </div>
-                <fieldset className="support-choices"><legend>Main reason for seeking support</legend><div>{supportAreas.map(([, title]) => <label key={title}><input type="checkbox" name="support" value={title} /> {title}</label>)}<label><input type="checkbox" name="support" value="Other" /> Other</label></div></fieldset>
+                <fieldset className="support-choices"><legend>Main reason for seeking support</legend><div>{supportAreas.map(([title]) => <label key={title}><input type="checkbox" name="support" value={title} /> {title}</label>)}<label><input type="checkbox" name="support" value="Other" /> Other</label></div></fieldset>
                 <label className="message-field"><span>Short message</span><textarea name="message" rows="5" placeholder="Briefly tell me what you’re hoping to get support with." /><small>Please avoid urgent, crisis, or highly sensitive medical details in this form.</small></label>
                 <label className="consent"><input type="checkbox" name="consent" /><span>I understand this form is for consultation inquiries and is not for emergencies. *</span></label>
                 <FieldError>{errors.consent}</FieldError>

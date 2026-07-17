@@ -210,11 +210,12 @@ The system is flat and tonally layered. Depth comes from adjacent olive, linen, 
 - The hero may use one orienting label. Other sections omit labels unless they add information that the heading cannot.
 - Preserve generous space after headings without adding promotional blurbs solely to fill the composition.
 
-### Support List
+### Support Grid
 
-- Support areas are a semantic, noninteractive list separated by quiet hairlines.
-- Each row uses an index, a clear title, and one concise explanatory sentence.
-- Static rows never use arrows, hover movement, button-like fills, or any other cue that promises navigation or expansion.
+- Support areas are presented as a semantic, noninteractive three-column card grid within the standard 1280px page shell.
+- Each card pairs one replaceable illustration with a clear title and one concise explanatory sentence.
+- Cards use a warm light surface and 16px corners on the olive section background, with no shadow or interactive styling.
+- The grid collapses to two columns on tablet and one column on mobile.
 
 ### Closing Footer
 
