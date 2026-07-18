@@ -4,8 +4,8 @@ Website for Eunice Lee, LCSW and Journey 2 Grow Therapy. The site introduces the
 
 ## Features
 
-- Responsive single-page experience for desktop, tablet, and mobile
-- Home, booking, and journal routes
+- Responsive static site for desktop, tablet, and mobile
+- Astro-generated home, booking, and journal routes
 - Areas of support presented in a responsive illustration card grid
 - Practice credentials, fees, insurance guidance, office hours, and session logistics
 - Consultation form with client-side validation and configurable form submission
@@ -14,8 +14,8 @@ Website for Eunice Lee, LCSW and Journey 2 Grow Therapy. The site introduces the
 
 ## Tech stack
 
-- React 19
-- Vite 7
+- Astro 7
+- React 19 islands
 - CSS
 - Lenis smooth scrolling
 - Phosphor Icons
@@ -24,7 +24,7 @@ Website for Eunice Lee, LCSW and Journey 2 Grow Therapy. The site introduces the
 
 Prerequisites:
 
-- Node.js 20.19+ or 22.12+
+- Node.js 22.12+
 - npm
 
 Install dependencies and start the development server:
@@ -34,22 +34,23 @@ npm install
 npm run dev
 ```
 
-Vite will print the local development URL in the terminal.
+Astro will print the local development URL in the terminal.
 
 ## Available scripts
 
 ```bash
-npm run dev      # Start the Vite development server
+npm run dev      # Start the Astro development server
 npm run build    # Create a production build in dist/
 npm run preview  # Preview the production build locally
+npm run check    # Validate Astro and TypeScript files
 ```
 
 ## Form configuration
 
-Set `VITE_FORM_ENDPOINT` in `.env.local` to connect the consultation form to a form service or API endpoint:
+Set `PUBLIC_FORM_ENDPOINT` in `.env.local` to connect the consultation form to a form service or API endpoint:
 
 ```bash
-VITE_FORM_ENDPOINT=https://example.com/form-endpoint
+PUBLIC_FORM_ENDPOINT=https://example.com/form-endpoint
 ```
 
 The form submits `multipart/form-data` with a `POST` request. When the variable is not configured, the interface uses a simulated successful submission for local development.
@@ -60,8 +61,9 @@ Do not commit `.env.local` or secrets to the repository.
 
 ```text
 src/
-  App.jsx          Application routes and page components
-  main.jsx         React entry point
+  App.jsx          Shared React page components and interactions
+  layouts/         Shared Astro document layout and metadata
+  pages/           File-based Astro routes
   styles.css       Global styles and responsive layouts
 public/
   images/          Production imagery and support illustrations
@@ -78,9 +80,9 @@ Create the production bundle with:
 npm run build
 ```
 
-Deploy the generated `dist/` directory to a static hosting provider. Because the app handles `/booking` and `/blog` client-side, configure the host to rewrite unknown routes to `index.html`.
+Deploy the generated `dist/` directory to a static hosting provider. Astro generates dedicated HTML for `/`, `/booking`, and `/blog`, so no client-side route rewrite is required.
 
-Before launch, configure `VITE_FORM_ENDPOINT` in the hosting environment and verify the consultation form against the production endpoint.
+Before launch, configure `PUBLIC_FORM_ENDPOINT` in the hosting environment and verify the consultation form against the production endpoint.
 
 ## Content and safety notes
 
