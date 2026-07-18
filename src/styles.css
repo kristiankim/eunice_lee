@@ -37,8 +37,8 @@ img { display: block; max-width: 100%; }
 h1, h2, h3, p { margin-top: 0; }
 h1, h2, h3 { text-wrap: balance; }
 h1, h2 { font-family: 'Gambarino', Georgia, serif; font-weight: 400; letter-spacing: -0.025em; }
-h1 { font-size: clamp(3rem, 4.45vw, 4.9rem); line-height: 0.98; }
-h2 { font-size: clamp(2.1rem, 3vw, 3.55rem); line-height: 1.04; }
+h1 { font-size: 56px; line-height: 0.98; }
+h2 { font-size: 40px; line-height: 1.04; }
 h3 { font-family: 'DM Sans', sans-serif; font-weight: 600; letter-spacing: -0.015em; }
 p { line-height: 1.7; text-wrap: pretty; }
 
@@ -64,7 +64,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .hero { padding-top: clamp(58px, 7.5vw, 112px); padding-bottom: 0; overflow: hidden; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(390px, .85fr); gap: clamp(48px, 7vw, 104px); align-items: center; }
 .hero-copy { max-width: 800px; padding-bottom: 32px; }
-.hero-copy h1 { max-width: 13ch; margin-bottom: 30px; }
+.hero-copy h1 { margin-bottom: 30px; }
 .hero-intro { max-width: 620px; margin-bottom: 38px; color: #4f5848; font-size: clamp(1.02rem, 1.4vw, 1.2rem); }
 .portrait-composition { position: relative; width: 100%; max-width: 470px; justify-self: end; }
 .portrait-frame { position: relative; overflow: hidden; aspect-ratio: .82; background: var(--linen); }
@@ -103,7 +103,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .support-card-image { height: 220px; display: grid; place-items: center; overflow: hidden; background: #f4ede4; }
 .support-card-image img { width: 100%; height: 100%; object-fit: contain; }
 .support-card-content { flex: 1; display: flex; flex-direction: column; gap: 24px; padding: 24px; }
-.support-card h3 { margin: 0; font-family: 'Gambarino', Georgia, serif; font-size: clamp(1.65rem, 2.15vw, 1.875rem); font-weight: 400; line-height: 1.08; letter-spacing: -.015em; }
+.support-card h3 { margin: 0; font-family: 'Gambarino', Georgia, serif; font-size: 24px; font-weight: 400; line-height: 1.08; letter-spacing: -.015em; }
 .support-card p { margin: 0; color: #4a5c39; font-size: 1rem; line-height: 1.5; }
 
 .expect { background: var(--paper); }
@@ -150,9 +150,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .footer-primary { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, .55fr); gap: clamp(64px, 10vw, 150px); align-items: end; }
 .footer-main { max-width: 800px; }
 .footer-main .eyebrow { color: var(--tan); }
-.footer-main h2 { max-width: 19ch; margin-bottom: 38px; font-size: clamp(2.65rem, 4.7vw, 5.15rem); }
+.footer-main h2 { max-width: 19ch; margin-bottom: 38px; font-size: 50px; }
 .footer-heading-context, .footer-heading-action { display: block; }
-.footer-heading-context { max-width: 25ch; margin-bottom: .28em; color: rgba(255,255,255,.72); font-size: .56em; line-height: 1.14; letter-spacing: -.01em; }
+.footer-heading-context { max-width: 25ch; margin-bottom: .28em; color: rgba(255,255,255,.72); font-family: 'DM Sans', sans-serif; font-size: .56em; line-height: 1.14; letter-spacing: -.01em; }
 .footer-heading-action { line-height: 1.02; }
 .footer-hours { max-width: 340px; padding-bottom: 4px; }
 .footer-hours > strong { display: block; margin-bottom: 14px; color: var(--tan); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
@@ -247,7 +247,7 @@ input[type='radio'], input[type='checkbox'] { width: 16px; height: 16px; margin:
   .section-pad { padding-block: 86px; }
   .hero-grid, .about-grid, .expect-grid, .fees-grid, .booking-grid { grid-template-columns: 1fr; gap: 64px; }
   .hero-grid { grid-template-columns: 1fr .9fr; gap: 38px; }
-  .hero-copy h1 { font-size: clamp(2.9rem, 6vw, 3.8rem); }
+  .hero-copy h1 { font-size: clamp(2.9rem, 6vw, 3.5rem); }
   .portrait-note { display: none; }
   .expect-sticky, .booking-aside { position: static; }
   .credentials { max-width: 620px; }
