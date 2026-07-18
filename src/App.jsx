@@ -4,6 +4,7 @@ import logoUrl from '../asset/J2G_Logo.svg'
 import {
   ArrowRight,
   CalendarBlank,
+  CaretDown,
   Check,
   GlobeHemisphereWest,
   List,
@@ -45,6 +46,33 @@ const acceptedInsurances = [
   'United Medical Resources (UMR)',
   'UnitedHealthcare UHC | UBH',
   'Out of Network',
+]
+
+const faqs = [
+  {
+    question: 'What kind of therapy do you offer?',
+    answer: 'Eunice offers individual therapy for adults using an integrative approach. Depending on your needs, sessions may draw from CBT, ACT, DBT, IFS, attachment-based, solution-focused, person-centered, and trauma-focused therapy. The work considers what is happening in your life now while making room to understand the experiences and relationship patterns that have shaped you.',
+  },
+  {
+    question: 'Is your approach brief or long-term?',
+    answer: 'Therapy may be short- or long-term depending on what you hope to work on. Shorter-term therapy often focuses on a particular concern and may include practical exercises and new skills. Longer-term work creates more room to explore broader patterns, relationships, and the connection between past experiences and your life today.',
+  },
+  {
+    question: 'How long does treatment typically last?',
+    answer: 'The length of therapy is tailored to each person rather than set in advance. You and Eunice can talk about your goals, needs, and progress as the work develops, and revisit together what continues to feel useful.',
+  },
+  {
+    question: 'How often would we meet?',
+    answer: 'Session frequency is based on your needs and is something you and Eunice will decide together. Regular meetings can provide continuity while giving you time between sessions to reflect and practice new ways of responding.',
+  },
+  {
+    question: 'How long are sessions?',
+    answer: 'The initial intake session is 75 minutes, offering additional time to talk about what brings you to therapy and what you hope might change. Regular individual therapy sessions are 55 minutes.',
+  },
+  {
+    question: 'Can I bring someone to my sessions?',
+    answer: 'Eunice’s primary focus is individual therapy. In some circumstances, it may be helpful for a significant person in your life to join a session. This would be discussed and planned together in advance, with attention to your comfort, privacy, and therapeutic goals.',
+  },
 ]
 
 function SmoothScroll() {
@@ -91,13 +119,15 @@ function ScrollReveal({ path }) {
       '.fees-grid > *',
       '.logistics-top > *',
       '.logistics-grid > *',
+      '.faq-intro > *',
+      '.faq-item',
       '.booking-hero-grid > *',
       '.booking-grid > *',
       '.blog-page .page-shell > *',
       '.footer-main > *',
       '.footer-hours',
+      '.footer-detail',
       '.footer-copyright',
-      '.footer-bottom > *',
     ].join(',')
     const elements = [...document.querySelectorAll(selector)]
 
@@ -167,26 +197,44 @@ function RouteLink({ href, onNavigate, className = '', children }) {
 
 function Header({ onNavigate }) {
   const [open, setOpen] = useState(false)
+  const [compact, setCompact] = useState(false)
+
+  useEffect(() => {
+    const sentinel = document.querySelector('.header-sentinel')
+    if (!sentinel || !('IntersectionObserver' in window)) return undefined
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setCompact(!entry.isIntersecting),
+      { rootMargin: '24px 0px 0px 0px', threshold: 0 },
+    )
+
+    observer.observe(sentinel)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <header className="site-header">
-      <div className="nav-shell">
-        <RouteLink href="/" onNavigate={onNavigate} className="wordmark" aria-label="Journey 2 Grow Therapy home">
-          <img className="wordmark-logo" src={logoUrl} alt="" width="268" height="45" />
-        </RouteLink>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <RouteLink href="/booking" onNavigate={onNavigate} className="nav-cta">Book a consultation <ArrowRight size={16} weight="bold" /></RouteLink>
-        </nav>
-        <button className="menu-button" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
-          {open ? <X size={23} /> : <List size={23} />}
-        </button>
-      </div>
-      {open && (
-        <nav className="mobile-nav" aria-label="Mobile navigation">
-          <RouteLink href="/" onNavigate={(href) => { onNavigate(href); setOpen(false) }}>Home</RouteLink>
-          <RouteLink href="/booking" onNavigate={(href) => { onNavigate(href); setOpen(false) }}>Book a consultation</RouteLink>
-        </nav>
-      )}
-    </header>
+    <>
+      <span className="header-sentinel" aria-hidden="true" />
+      <header className={`site-header ${compact ? 'is-compact' : ''}`}>
+        <div className="nav-shell">
+          <RouteLink href="/" onNavigate={onNavigate} className="wordmark" aria-label="Journey 2 Grow Therapy home">
+            <img className="wordmark-logo" src={logoUrl} alt="" width="268" height="45" />
+          </RouteLink>
+          <nav className="desktop-nav" aria-label="Primary navigation">
+            <RouteLink href="/booking" onNavigate={onNavigate} className="nav-cta">Book a consultation <ArrowRight size={16} weight="bold" /></RouteLink>
+          </nav>
+          <button className="menu-button" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
+            {open ? <X size={23} /> : <List size={23} />}
+          </button>
+        </div>
+        {open && (
+          <nav className="mobile-nav" aria-label="Mobile navigation">
+            <RouteLink href="/" onNavigate={(href) => { onNavigate(href); setOpen(false) }}>Home</RouteLink>
+            <RouteLink href="/booking" onNavigate={(href) => { onNavigate(href); setOpen(false) }}>Book a consultation</RouteLink>
+          </nav>
+        )}
+      </header>
+    </>
   )
 }
 
@@ -313,6 +361,26 @@ function Home({ onNavigate }) {
         </div>
       </section>
 
+      <section className="faq section-pad" id="faq">
+        <div className="page-shell faq-grid">
+          <div className="faq-intro">
+            <h2>FAQ</h2>
+            <p>Therapy can feel unfamiliar at first. These answers offer a starting point, and you can always ask about what working together might look like for you.</p>
+          </div>
+          <div className="faq-list">
+            {faqs.map(({ question, answer }, index) => (
+              <details className="faq-item" key={question} open={index === 0}>
+                <summary>
+                  <span>{question}</span>
+                  <span className="faq-icon" aria-hidden="true"><CaretDown size={20} weight="regular" /></span>
+                </summary>
+                <div className="faq-answer"><p>{answer}</p></div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </main>
   )
 }
@@ -411,25 +479,21 @@ function Footer({ onNavigate }) {
       <div className="footer-image" aria-hidden="true" />
       <div className="footer-overlay" />
       <div className="page-shell footer-content">
-        <div className="footer-primary">
-          <div className="footer-main">
-            <h2><span className="footer-heading-context">If you’re considering therapy but not sure where to begin,</span><span className="footer-heading-action">start with a brief conversation.</span></h2>
-            <ButtonLink onNavigate={onNavigate} light>Send an inquiry</ButtonLink>
-          </div>
-          <aside className="footer-hours">
-            <strong>Office hours</strong>
-            <p>Before requesting a consultation, please note:</p>
-            <dl>
-              <div><dt>Monday, Tuesday &amp; Friday</dt><dd>9:30 AM–3:00 PM</dd></div>
-              <div><dt>Wednesday &amp; Thursday</dt><dd>9:30 AM–5:30 PM</dd></div>
-            </dl>
-          </aside>
+        <div className="footer-main">
+          <h2><span className="footer-heading-context">If you’re considering therapy but not sure where to begin,</span><span className="footer-heading-action">start with a brief conversation.</span></h2>
+          <ButtonLink onNavigate={onNavigate} light>Send an inquiry</ButtonLink>
         </div>
-        <div className="footer-bottom">
-          <div className="footer-detail"><strong>Practice</strong><span>Eunice Lee, LCSW</span><span>Licensed in New York &amp; New Jersey</span></div>
-          <div className="footer-detail"><strong>Office</strong><address>233 Mt. Airy Rd., Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div>
-          <nav className="footer-detail footer-links" aria-label="Footer navigation"><strong>Explore</strong><div><RouteLink href="/" onNavigate={onNavigate}>Home</RouteLink><RouteLink href="/booking" onNavigate={onNavigate}>Booking</RouteLink></div></nav>
-        </div>
+        <aside className="footer-hours">
+          <strong>Office hours</strong>
+          <p>Before requesting a consultation, please note:</p>
+          <dl>
+            <div><dt>Monday, Tuesday &amp; Friday</dt><dd>9:30 AM–3:00 PM</dd></div>
+            <div><dt>Wednesday &amp; Thursday</dt><dd>9:30 AM–5:30 PM</dd></div>
+          </dl>
+        </aside>
+        <div className="footer-detail"><strong>Practice</strong><span>Eunice Lee, LCSW</span><span>Licensed in New York &amp; New Jersey</span></div>
+        <div className="footer-detail"><strong>Office</strong><address>233 Mt. Airy Rd., Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div>
+        <nav className="footer-detail footer-links" aria-label="Footer navigation"><strong>Explore</strong><div><RouteLink href="/" onNavigate={onNavigate}>Home</RouteLink><RouteLink href="/booking" onNavigate={onNavigate}>Booking</RouteLink></div></nav>
         <p className="footer-copyright">© {new Date().getFullYear()} Journey 2 Grow Therapy. All rights reserved.</p>
       </div>
     </footer>
