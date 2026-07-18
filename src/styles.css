@@ -80,7 +80,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .about { background: var(--cream); }
 .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 12vw; align-items: start; }
-.about-grid h2 { max-width: 11ch; margin: 0; }
+.about-grid h2 { margin: 0; }
 .no-break { white-space: nowrap; }
 .about-body .lead { max-width: 620px; margin-bottom: 52px; color: #424a3c; font-size: clamp(1.02rem, 1.4vw, 1.2rem); line-height: 1.7; }
 .credentials { display: grid; grid-template-columns: repeat(3, 1fr); padding-block: 28px; border-block: 1px solid var(--line); }
@@ -122,9 +122,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .fees-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10vw; }
 .fees-title h2 { max-width: 10ch; }
 .fees-copy > p { margin-bottom: 30px; color: #4a5342; font-size: 1.05rem; }
-.fees-copy ul { display: grid; gap: 14px; margin: 0 0 38px; padding: 28px 0; border-block: 1px solid rgba(26,31,20,.17); list-style: none; }
-.fees-copy li { display: flex; align-items: center; gap: 12px; font-size: .88rem; }
-.fees-copy li svg { color: var(--olive); }
+.insurance-heading { margin: 0; font-size: 1rem; }
+.insurance-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 32px; margin: 18px 0 28px; padding: 28px 0; border-block: 1px solid rgba(26,31,20,.17); list-style: none; }
+.insurance-list li { min-width: 0; color: #424a3c; font-size: .88rem; line-height: 1.45; }
+.fees-copy > .fees-note { margin-bottom: 34px; font-size: .95rem; }
 
 .logistics { background: var(--cream); }
 .logistics-top { max-width: 760px; display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 58px; }
@@ -284,6 +285,7 @@ input[type='radio'], input[type='checkbox'] { width: 16px; height: 16px; margin:
   .trust-row > div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
   .trust-row > div:nth-child(4) { border-top: 1px solid var(--line); }
   .about-grid, .fees-grid, .expect-grid { gap: 48px; }
+  .insurance-list { grid-template-columns: 1fr; }
   .credentials { grid-template-columns: 1fr; }
   .credentials > div { grid-template-columns: 128px 1fr; gap: 14px; align-items: baseline; padding-block: 14px; }
   .section-heading { display: flex; margin-bottom: 52px; }

@@ -153,7 +153,7 @@ The palette comes from Eunice’s dining-room olive and the natural materials of
 
 **The Direct Heading Rule.** Informational sections begin with a clear, literal heading and move directly into content. Reserve label–headline–blurb compositions for the hero or a genuinely distinct narrative moment; never repeat them as page scaffolding.
 
-**The Insurance Clarity Rule.** Describe insurance as plan-specific until Eunice supplies and approves a current insurer list. Never imply universal acceptance, guaranteed coverage, or a known out-of-pocket cost; tell visitors what information to share and what they should confirm with their insurer.
+**The Insurance Clarity Rule.** Use Eunice’s approved current insurer list while keeping coverage plan-specific. Never imply universal acceptance, guaranteed coverage, or a known out-of-pocket cost; remind visitors to confirm benefit details with their insurer and invite uncertain visitors to reach out.
 
 ## Elevation
 

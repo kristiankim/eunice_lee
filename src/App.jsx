@@ -25,6 +25,28 @@ const supportAreas = [
 
 const approaches = ['CBT', 'ACT', 'DBT', 'IFS', 'Attachment-based', 'Solution-focused', 'Person-centered', 'Trauma-focused']
 
+const acceptedInsurances = [
+  'Aetna',
+  'Allied Benefit Systems – Aetna',
+  'AllSavers UHC',
+  'Harvard Pilgrim',
+  'Health Plans Inc.',
+  'Horizon Blue Cross and Blue Shield',
+  'Medicare',
+  'Meritain Health',
+  'Nippon',
+  'Optum',
+  'Oscar Health',
+  'Oxford',
+  'Surest',
+  'Trustmark Health Benefits',
+  'UHC Student Resources',
+  'UnitedHealthcare Shared Services',
+  'United Medical Resources (UMR)',
+  'UnitedHealthcare UHC | UBH',
+  'Out of Network',
+]
+
 function SmoothScroll() {
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -270,8 +292,12 @@ function Home({ onNavigate }) {
         <div className="page-shell fees-grid">
           <div className="fees-title"><h2>Fees & insurance</h2></div>
           <div className="fees-copy">
-            <p>Insurance participation and out-of-pocket costs vary by plan. When you inquire, share your insurer and plan name so Eunice can let you know whether it is currently accepted. Your insurer can confirm your copay, deductible, and other benefit details.</p>
-            <ul><li><Check size={18} weight="bold" /> Free 15-minute consultation</li><li><Check size={18} weight="bold" /> Ask whether your plan is currently accepted</li><li><Check size={18} weight="bold" /> Confirm your expected cost before scheduling</li></ul>
+            <p>Eunice currently works with the insurance plans listed below. Coverage and out-of-pocket costs vary by plan, so your insurer can confirm your copay, deductible, and other benefit details.</p>
+            <h3 className="insurance-heading">Accepted insurance</h3>
+            <ul className="insurance-list">
+              {acceptedInsurances.map((insurance) => <li key={insurance}>{insurance}</li>)}
+            </ul>
+            <p className="fees-note">If you’re not sure whether your plan is included, please reach out and we can figure it out together.</p>
             <ButtonLink onNavigate={onNavigate}>Ask about insurance</ButtonLink>
           </div>
         </div>
