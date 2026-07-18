@@ -1,17 +1,17 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import Lenis from 'lenis'
-import logoUrl from '../asset/J2G_Logo.svg'
+import logoUrl from '../asset/J2G_Logo.svg?url'
 import {
-  ArrowRight,
-  CalendarBlank,
-  CaretDown,
-  Check,
-  GlobeHemisphereWest,
-  List,
-  MapPin,
-  SealCheck,
-  Translate,
-  X,
+  ArrowRightIcon as ArrowRight,
+  CalendarBlankIcon as CalendarBlank,
+  CaretDownIcon as CaretDown,
+  CheckIcon as Check,
+  GlobeHemisphereWestIcon as GlobeHemisphereWest,
+  ListIcon as List,
+  MapPinIcon as MapPin,
+  SealCheckIcon as SealCheck,
+  TranslateIcon as Translate,
+  XIcon as X,
 } from '@phosphor-icons/react'
 
 const supportAreas = [
@@ -167,32 +167,8 @@ function ScrollReveal({ path }) {
   return null
 }
 
-function usePathname() {
-  const [path, setPath] = useState(window.location.pathname)
-  useEffect(() => {
-    const onPop = () => setPath(window.location.pathname)
-    window.addEventListener('popstate', onPop)
-    return () => window.removeEventListener('popstate', onPop)
-  }, [])
-  return [path, setPath]
-}
-
-function RouteLink({ href, onNavigate, className = '', children }) {
-  return (
-    <a
-      href={href}
-      className={className}
-      onClick={(event) => {
-        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
-        event.preventDefault()
-        window.history.pushState({}, '', href)
-        onNavigate(href)
-        window.scrollTo({ top: 0, behavior: 'instant' })
-      }}
-    >
-      {children}
-    </a>
-  )
+function RouteLink({ href, className = '', children, onNavigate: _onNavigate, ...props }) {
+  return <a href={href} className={className} {...props}>{children}</a>
 }
 
 function Header({ onNavigate }) {
@@ -383,7 +359,7 @@ function Home({ onNavigate }) {
 
 function FieldError({ children }) { return children ? <span className="field-error">{children}</span> : null }
 
-function Booking({ onNavigate }) {
+function Booking() {
   const [status, setStatus] = useState('idle')
   const [errors, setErrors] = useState({})
 
@@ -401,7 +377,7 @@ function Booking({ onNavigate }) {
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length) return
     setStatus('loading')
-    const endpoint = import.meta.env.VITE_FORM_ENDPOINT
+    const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT
     try {
       if (endpoint) {
         const response = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
@@ -496,23 +472,7 @@ function Footer({ onNavigate }) {
   )
 }
 
-export default function App() {
-  const [path, setPath] = usePathname()
-  useEffect(() => {
-    const titles = {
-      '/': 'Eunice Lee, LCSW | Journey 2 Grow Therapy',
-      '/booking': 'Request a Consultation | Eunice Lee, LCSW',
-      '/blog': 'Journal | Journey 2 Grow Therapy',
-    }
-    document.title = titles[path] || titles['/']
-    let robots = document.querySelector('meta[name="robots"]')
-    if (!robots) {
-      robots = document.createElement('meta')
-      robots.name = 'robots'
-      document.head.appendChild(robots)
-    }
-    robots.content = path === '/blog' ? 'noindex, nofollow' : 'index, follow'
-  }, [path])
-  const page = path === '/booking' ? <Booking onNavigate={setPath} /> : path === '/blog' ? <Blog /> : <Home onNavigate={setPath} />
-  return <><SmoothScroll /><ScrollReveal path={path} /><Header onNavigate={setPath} />{page}<Footer onNavigate={setPath} /></>
+export default function App({ path = '/' }) {
+  const page = path === '/booking' ? <Booking /> : path === '/blog' ? <Blog /> : <Home />
+  return <><SmoothScroll /><ScrollReveal path={path} /><Header />{page}<Footer /></>
 }
