@@ -1,12 +1,16 @@
 ---
 import App from '../App.jsx'
 import Layout from '../layouts/Layout.astro'
+import { isSanityConfigured } from '../sanity/config'
+import { getBlogPosts } from '../sanity/queries'
+
+const posts = await getBlogPosts()
 ---
 
 <Layout
   title="Journal | Journey 2 Grow Therapy"
   description="Thoughtful resources about therapy, anxiety, relationships, and navigating change from Journey 2 Grow Therapy."
-  robots="noindex, nofollow"
+  robots={isSanityConfigured ? 'index, follow' : 'noindex, nofollow'}
 >
-  <App path="/blog" client:load />
+  <App path="/blog" posts={posts} configured={isSanityConfigured} client:load />
 </Layout>

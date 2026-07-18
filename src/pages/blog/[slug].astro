@@ -1,0 +1,26 @@
+---
+import App from '../../App.jsx'
+import Layout from '../../layouts/Layout.astro'
+import { getBlogPostPaths, type BlogPost } from '../../sanity/queries'
+
+export async function getStaticPaths() {
+  const posts = await getBlogPostPaths()
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+interface Props {
+  post: BlogPost
+}
+
+const { post } = Astro.props
+const title = post.seo?.metaTitle || `${post.title} | Journey 2 Grow Therapy`
+const description = post.seo?.metaDescription || post.excerpt || 'An article from Journey 2 Grow Therapy.'
+---
+
+<Layout title={title} description={description}>
+  <App path={`/blog/${post.slug}`} post={post} client:load />
+</Layout>

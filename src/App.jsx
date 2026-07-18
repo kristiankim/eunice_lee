@@ -1,6 +1,8 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import Lenis from 'lenis'
+import { PortableText } from '@portabletext/react'
 import logoUrl from '../asset/J2G_Logo.svg?url'
+import { urlForImage } from './sanity/image'
 import {
   ArrowRightIcon as ArrowRight,
   CalendarBlankIcon as CalendarBlank,
@@ -124,6 +126,8 @@ function ScrollReveal({ path }) {
       '.booking-hero-grid > *',
       '.booking-grid > *',
       '.blog-page .page-shell > *',
+      '.blog-card',
+      '.post-content > *',
       '.footer-main > *',
       '.footer-hours',
       '.footer-detail',
@@ -197,6 +201,7 @@ function Header({ onNavigate }) {
             <img className="wordmark-logo" src={logoUrl} alt="" width="268" height="45" />
           </RouteLink>
           <nav className="desktop-nav" aria-label="Primary navigation">
+            <RouteLink href="/blog" className="nav-link">Journal</RouteLink>
             <RouteLink href="/booking" onNavigate={onNavigate} className="nav-cta">Book a consultation <ArrowRight size={16} weight="bold" /></RouteLink>
           </nav>
           <button className="menu-button" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
@@ -206,6 +211,7 @@ function Header({ onNavigate }) {
         {open && (
           <nav className="mobile-nav" aria-label="Mobile navigation">
             <RouteLink href="/" onNavigate={(href) => { onNavigate(href); setOpen(false) }}>Home</RouteLink>
+            <RouteLink href="/blog">Journal</RouteLink>
             <RouteLink href="/booking" onNavigate={(href) => { onNavigate(href); setOpen(false) }}>Book a consultation</RouteLink>
           </nav>
         )}
@@ -441,8 +447,127 @@ function Booking() {
   )
 }
 
-function Blog() {
-  return <main className="blog-page"><div className="page-shell"><p className="eyebrow">Journal</p><h1>Thoughtful resources, coming soon.</h1><p>Eunice is preparing practical notes about therapy, anxiety, relationships, and navigating change.</p></div></main>
+function formatPostDate(value) {
+  if (!value) return ''
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(new Date(value))
+}
+
+const portableTextComponents = {
+  types: {
+    image: ({ value }) => {
+      const imageUrl = urlForImage(value)?.width(1280).fit('max').url()
+      if (!imageUrl) return null
+      return (
+        <figure className="post-body-image">
+          <img src={imageUrl} alt={value.alt || ''} loading="lazy" />
+          {value.caption && <figcaption>{value.caption}</figcaption>}
+        </figure>
+      )
+    },
+  },
+  marks: {
+    link: ({ value, children }) => {
+      const external = value?.openInNewTab || value?.href?.startsWith('http')
+      return <a href={value?.href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined}>{children}</a>
+    },
+  },
+}
+
+/**
+ * @param {{
+ *   posts?: import('./sanity/queries').BlogPostSummary[],
+ *   configured?: boolean
+ * }} props
+ */
+function Blog({ posts = [], configured = false }) {
+  const hasPosts = posts.length > 0
+
+  return (
+    <main className="blog-page blog-index-page">
+      <section className="blog-hero section-pad">
+        <div className="page-shell blog-intro">
+          <p className="eyebrow">Journal</p>
+          <h1>Thoughtful notes for the work of being human.</h1>
+          <p>Practical reflections on therapy, anxiety, relationships, identity, and navigating change.</p>
+        </div>
+      </section>
+      <section className="blog-feed section-pad">
+        <div className="page-shell">
+          {hasPosts ? (
+            <div className="blog-grid">
+              {posts.map((post) => (
+                <article className="blog-card" key={post._id}>
+                  <a href={`/blog/${post.slug}`} className="blog-card-link">
+                    <div className="blog-card-image">
+                      {post.mainImage?.asset?.url ? (
+                        <img src={post.mainImage.asset.url} alt={post.mainImage.alt || ''} loading="lazy" />
+                      ) : (
+                        <span aria-hidden="true" />
+                      )}
+                    </div>
+                    <div className="blog-card-copy">
+                      <div className="blog-meta">
+                        {post.categories?.[0]?.title && <span>{post.categories[0].title}</span>}
+                        <time dateTime={post.publishedAt}>{formatPostDate(post.publishedAt)}</time>
+                      </div>
+                      <h2>{post.title}</h2>
+                      {post.excerpt && <p>{post.excerpt}</p>}
+                      <span className="blog-read-more">Read article <ArrowRight size={16} weight="bold" /></span>
+                    </div>
+                  </a>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="blog-empty">
+              <h2>Thoughtful resources, coming soon.</h2>
+              <p>{configured ? 'The first articles are being prepared for publication.' : 'Eunice is preparing practical notes about therapy, anxiety, relationships, and navigating change.'}</p>
+            </div>
+          )}
+        </div>
+      </section>
+    </main>
+  )
+}
+
+/** @param {{post?: import('./sanity/queries').BlogPost | null}} props */
+function BlogPost({ post }) {
+  if (!post) return <Blog />
+
+  return (
+    <main className="blog-page post-page">
+      <article>
+        <header className="post-hero section-pad">
+          <div className="page-shell post-hero-inner">
+            <a className="post-back" href="/blog">← Back to journal</a>
+            <div className="blog-meta">
+              {post.categories?.[0]?.title && <span>{post.categories[0].title}</span>}
+              <time dateTime={post.publishedAt}>{formatPostDate(post.publishedAt)}</time>
+            </div>
+            <h1>{post.title}</h1>
+            {post.excerpt && <p className="post-deck">{post.excerpt}</p>}
+            {post.author?.name && <p className="post-author">By {post.author.name}</p>}
+          </div>
+        </header>
+        {post.mainImage?.asset?.url && (
+          <div className="page-shell post-main-image">
+            <img src={post.mainImage.asset.url} alt={post.mainImage.alt || ''} />
+          </div>
+        )}
+        <div className="page-shell post-content section-pad">
+          {post.body?.length ? (
+            <PortableText value={post.body} components={portableTextComponents} />
+          ) : (
+            <p>{post.excerpt}</p>
+          )}
+        </div>
+      </article>
+    </main>
+  )
 }
 
 function Footer({ onNavigate }) {
@@ -465,14 +590,28 @@ function Footer({ onNavigate }) {
         </aside>
         <div className="footer-detail"><strong>Practice</strong><span>Eunice Lee, LCSW</span><span>Licensed in New York &amp; New Jersey</span></div>
         <div className="footer-detail"><strong>Office</strong><address>233 Mt. Airy Rd., Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div>
-        <nav className="footer-detail footer-links" aria-label="Footer navigation"><strong>Explore</strong><div><RouteLink href="/" onNavigate={onNavigate}>Home</RouteLink><RouteLink href="/booking" onNavigate={onNavigate}>Booking</RouteLink></div></nav>
+        <nav className="footer-detail footer-links" aria-label="Footer navigation"><strong>Explore</strong><div><RouteLink href="/" onNavigate={onNavigate}>Home</RouteLink><RouteLink href="/blog">Journal</RouteLink><RouteLink href="/booking" onNavigate={onNavigate}>Booking</RouteLink></div></nav>
         <p className="footer-copyright">© {new Date().getFullYear()} Journey 2 Grow Therapy. All rights reserved.</p>
       </div>
     </footer>
   )
 }
 
-export default function App({ path = '/' }) {
-  const page = path === '/booking' ? <Booking /> : path === '/blog' ? <Blog /> : <Home />
+/**
+ * @param {{
+ *   path?: string,
+ *   posts?: import('./sanity/queries').BlogPostSummary[],
+ *   configured?: boolean,
+ *   post?: import('./sanity/queries').BlogPost | null
+ * }} props
+ */
+export default function App({ path = '/', posts = [], configured = false, post = null }) {
+  const page = path === '/booking'
+    ? <Booking />
+    : path.startsWith('/blog/')
+      ? <BlogPost post={post} />
+      : path === '/blog'
+        ? <Blog posts={posts} configured={configured} />
+        : <Home />
   return <><SmoothScroll /><ScrollReveal path={path} /><Header />{page}<Footer /></>
 }

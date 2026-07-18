@@ -10,13 +10,17 @@
 
 ## Blog
 
-The `/blog` route is built and currently excluded from navigation. It also has no published article links.
+The `/blog` route is connected to Sanity and linked from the desktop navigation, mobile navigation, and footer. Published posts receive static `/blog/[slug]` pages.
 
-To activate it:
+To finish activation:
 
-1. Replace the placeholder in `src/App.jsx`’s `Blog` component with approved posts or connect `src/pages/blog.astro` to the chosen CMS.
-2. Add a Blog `RouteLink` in both `desktop-nav` and `mobile-nav` in `src/App.jsx`.
-3. Create a post, keep it unpublished while editing, preview it at its slug, then publish only after Eunice approves the copy.
-4. Add the final blog routes to the sitemap after the site is deployed.
+1. Create or select the Journey 2 Grow Therapy project at Sanity.
+2. Set `PUBLIC_SANITY_PROJECT_ID` and `PUBLIC_SANITY_DATASET` locally and in Vercel.
+3. Add the local Studio URL and deployed Studio URL to Sanity’s CORS origins with credentials allowed.
+4. Run `npm run studio:dev`, create an author, categories, and the first post, then publish only after Eunice approves the copy.
+5. Create a Sanity webhook that triggers a Vercel build when published content changes.
+6. Deploy the `studio/` directory as a separate Vercel project.
+7. Add the deployed Studio URL to the Sanity project’s Studios page and CORS origins.
+8. Add the final blog routes to the sitemap after the site is deployed.
 
 Suggested first topics: first-session expectations, anxiety basics, relationship communication patterns, and immigration/adjustment stress.
