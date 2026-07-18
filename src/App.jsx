@@ -271,10 +271,6 @@ function Home({ onNavigate }) {
             <div className="portrait-frame">
               <img src="/images/eunice-lee.png" width="320" height="400" alt="Eunice Lee, licensed clinical social worker" />
             </div>
-            <div className="portrait-note">
-              <span className="portrait-note-line" />
-              <p>Care that begins with listening.</p>
-            </div>
           </div>
         </div>
         <div className="page-shell hero-trust"><TrustRow /></div>
@@ -459,7 +455,7 @@ function Booking({ onNavigate }) {
                 <label className="consent"><input type="checkbox" name="consent" /><span>I understand this form is for consultation inquiries and is not for emergencies. *</span></label>
                 <FieldError>{errors.consent}</FieldError>
                 {status === 'error' && <div className="submit-error" role="alert">Your inquiry couldn’t be sent. Please try again in a moment.</div>}
-                <button className="button submit-button" type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Sending…' : 'Send inquiry'}{status !== 'loading' && <ArrowRight size={17} weight="bold" />}</button>
+                <button className="button submit-button" type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Sending…' : 'Submit'}{status !== 'loading' && <ArrowRight size={17} weight="bold" />}</button>
               </form>
             )}
           </div>

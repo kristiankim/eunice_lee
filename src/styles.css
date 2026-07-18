@@ -77,9 +77,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .portrait-frame { position: relative; overflow: hidden; aspect-ratio: .82; background: var(--linen); }
 .portrait-frame::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(26,31,20,.08); }
 .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: saturate(.78) sepia(.06); }
-.portrait-note { position: absolute; right: calc(100% - 28px); bottom: 34px; width: 190px; padding: 20px 22px; background: var(--tan); }
-.portrait-note-line { display: block; width: 32px; height: 1px; margin-bottom: 13px; background: var(--olive); }
-.portrait-note p { margin: 0; font-size: 1.05rem; font-weight: 500; line-height: 1.35; }
 .hero-trust { margin-top: clamp(74px, 9vw, 132px); }
 .trust-row { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .trust-row > div { min-height: 74px; display: flex; align-items: center; justify-content: center; gap: 11px; color: #47503f; font-size: .78rem; }
@@ -274,7 +271,6 @@ input[type='radio'], input[type='checkbox'] { width: 16px; height: 16px; margin:
   .hero-grid, .about-grid, .expect-grid, .fees-grid, .faq-grid, .booking-grid { grid-template-columns: 1fr; gap: 64px; }
   .hero-grid { grid-template-columns: 1fr .9fr; gap: 38px; }
   .hero-copy h1 { font-size: clamp(2.9rem, 6vw, 3.5rem); }
-  .portrait-note { display: none; }
   .expect-sticky, .faq-intro, .booking-aside { position: static; }
   .credentials { max-width: 620px; }
   .support-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
