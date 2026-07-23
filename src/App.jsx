@@ -53,7 +53,7 @@ const acceptedInsurances = [
 const faqs = [
   {
     question: 'What kind of therapy do you offer?',
-    answer: 'Eunice offers individual therapy for adults using an integrative approach. Depending on your needs, sessions may draw from CBT, ACT, DBT, IFS, attachment-based, solution-focused, person-centered, and trauma-focused therapy. The work considers what is happening in your life now while making room to understand the experiences and relationship patterns that have shaped you.',
+    answer: 'I offer individual therapy for adults using an integrative approach. Depending on your needs, sessions may draw from CBT, ACT, DBT, IFS, attachment-based, solution-focused, person-centered, and trauma-focused therapy. Our work considers what is happening in your life now while making room to understand the experiences and relationship patterns that have shaped you.',
   },
   {
     question: 'Is your approach brief or long-term?',
@@ -61,11 +61,11 @@ const faqs = [
   },
   {
     question: 'How long does treatment typically last?',
-    answer: 'The length of therapy is tailored to each person rather than set in advance. You and Eunice can talk about your goals, needs, and progress as the work develops, and revisit together what continues to feel useful.',
+    answer: 'The length of therapy is tailored to each person rather than set in advance. We can talk about your goals, needs, and progress as the work develops, and revisit together what continues to feel useful.',
   },
   {
     question: 'How often would we meet?',
-    answer: 'Session frequency is based on your needs and is something you and Eunice will decide together. Regular meetings can provide continuity while giving you time between sessions to reflect and practice new ways of responding.',
+    answer: 'Session frequency is based on your needs and is something we will decide together. Regular meetings can provide continuity while giving you time between sessions to reflect and practice new ways of responding.',
   },
   {
     question: 'How long are sessions?',
@@ -73,7 +73,7 @@ const faqs = [
   },
   {
     question: 'Can I bring someone to my sessions?',
-    answer: 'Eunice’s primary focus is individual therapy. In some circumstances, it may be helpful for a significant person in your life to join a session. This would be discussed and planned together in advance, with attention to your comfort, privacy, and therapeutic goals.',
+    answer: 'My primary focus is individual therapy. In some circumstances, it may be helpful for a significant person in your life to join a session. We would discuss and plan this together in advance, with attention to your comfort, privacy, and therapeutic goals.',
   },
 ]
 
@@ -264,7 +264,7 @@ function Home({ onNavigate }) {
             <h2><span className="no-break">A collaborative</span> space to understand what you’re carrying.</h2>
           </div>
           <div className="about-body">
-            <p className="lead">Therapy with Eunice is collaborative and client-centered. She helps clients better understand what they are experiencing, build practical coping skills, and work toward clarity, resilience, and healthier relationships.</p>
+            <p className="lead">My approach to therapy is collaborative and client-centered. I help you better understand what you are experiencing, build practical coping skills, and work toward clarity, resilience, and healthier relationships.</p>
             <div className="credentials">
               <div><strong>10 years</strong><span>in practice</span></div>
               <div><strong>Columbia</strong><span>MSW, 2016</span></div>
@@ -318,7 +318,7 @@ function Home({ onNavigate }) {
         <div className="page-shell fees-grid">
           <div className="fees-title"><h2>Fees & insurance</h2></div>
           <div className="fees-copy">
-            <p>Eunice currently works with the insurance plans listed below. Coverage and out-of-pocket costs vary by plan, so your insurer can confirm your copay, deductible, and other benefit details.</p>
+            <p>I currently work with the insurance plans listed below. Coverage and out-of-pocket costs vary by plan, so your insurer can confirm your copay, deductible, and other benefit details.</p>
             <h3 className="insurance-heading">Accepted insurance</h3>
             <ul className="insurance-list">
               {acceptedInsurances.map((insurance) => <li key={insurance}>{insurance}</li>)}
@@ -409,14 +409,14 @@ function Booking() {
       <section className="booking-content section-pad">
         <div className="page-shell booking-grid">
           <aside className="booking-aside">
-            <div className="aside-block"><CalendarBlank size={25} /><div><h2>What happens next</h2><p>Eunice will review your inquiry and follow up to arrange a free 15-minute consultation.</p></div></div>
-            <div className="aside-block"><Translate size={25} /><div><h2>Contact preference</h2><p>Email or text is best. Phone calls can be difficult to answer while Eunice is in session.</p></div></div>
+            <div className="aside-block"><CalendarBlank size={25} /><div><h2>What happens next</h2><p>I will review your inquiry and follow up to arrange a free 15-minute consultation.</p></div></div>
+            <div className="aside-block"><Translate size={25} /><div><h2>Contact preference</h2><p>Email or text is best. I may not be able to answer phone calls while I’m in session.</p></div></div>
             <div className="aside-block"><MapPin size={25} /><div><h2>In-person location</h2><address>233 Mt. Airy Rd.<br />Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div></div>
             <div className="crisis-note"><strong>Need immediate help?</strong><p>This form is not monitored for emergencies. Call or text <a href="tel:988">988</a> for the Suicide & Crisis Lifeline, or call 911 if there is immediate danger.</p></div>
           </aside>
           <div className="form-wrap">
             {status === 'success' ? (
-              <div className="success-state" role="status"><div className="success-icon"><Check size={28} weight="bold" /></div><p className="eyebrow">Inquiry received</p><h2>Thank you for reaching out.</h2><p>Eunice will follow up using your preferred contact method. If your needs are urgent, please call or text 988 rather than waiting for a reply.</p><button className="text-button" onClick={() => setStatus('idle')}>Send another inquiry</button></div>
+              <div className="success-state" role="status"><div className="success-icon"><Check size={28} weight="bold" /></div><p className="eyebrow">Inquiry received</p><h2>Thank you for reaching out.</h2><p>I will follow up using your preferred contact method. If your needs are urgent, please call or text 988 rather than waiting for a reply.</p><button className="text-button" onClick={() => setStatus('idle')}>Send another inquiry</button></div>
             ) : (
               <form onSubmit={submitForm} noValidate>
                 <div className="form-heading"><h2>Consultation inquiry</h2><p>Fields marked with an asterisk are required.</p></div>
@@ -525,7 +525,7 @@ function Blog({ posts = [], configured = false }) {
           ) : (
             <div className="blog-empty">
               <h2>Thoughtful resources, coming soon.</h2>
-              <p>{configured ? 'The first articles are being prepared for publication.' : 'Eunice is preparing practical notes about therapy, anxiety, relationships, and navigating change.'}</p>
+              <p>{configured ? 'I’m preparing the first articles for publication.' : 'I’m preparing practical notes about therapy, anxiety, relationships, and navigating change.'}</p>
             </div>
           )}
         </div>
@@ -581,12 +581,8 @@ function Footer({ onNavigate }) {
           <ButtonLink onNavigate={onNavigate} light>Send an inquiry</ButtonLink>
         </div>
         <aside className="footer-hours">
-          <strong>Office hours</strong>
-          <p>Before requesting a consultation, please note:</p>
-          <dl>
-            <div><dt>Monday, Tuesday &amp; Friday</dt><dd>9:30 AM–3:00 PM</dd></div>
-            <div><dt>Wednesday &amp; Thursday</dt><dd>9:30 AM–5:30 PM</dd></div>
-          </dl>
+          <strong>Hours: Monday through Friday daytime.</strong>
+          <p><em>I understand standard business hours don't work for everyone. While my regular schedule is during the day, I can occasionally arrange an evening session if your schedule requires it. Let's discuss your scheduling needs during our initial consultation.</em></p>
         </aside>
         <div className="footer-detail"><strong>Practice</strong><span>Eunice Lee, LCSW</span><span>Licensed in New York &amp; New Jersey</span></div>
         <div className="footer-detail"><strong>Office</strong><address>233 Mt. Airy Rd., Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div>
