@@ -14,16 +14,16 @@ colors:
   error: "#9B3F30"
 typography:
   display:
-    fontFamily: "Gambarino, Georgia, serif"
+    fontFamily: "Fraunces, Georgia, serif"
     fontSize: "clamp(3rem, 4.45vw, 4.9rem)"
     fontWeight: 400
-    lineHeight: 0.98
+    lineHeight: 1.14
     letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Gambarino, Georgia, serif"
+    fontFamily: "Fraunces, Georgia, serif"
     fontSize: "clamp(2.1rem, 3vw, 3.55rem)"
     fontWeight: 400
-    lineHeight: 1.04
+    lineHeight: 1.18
     letterSpacing: "-0.025em"
   title:
     fontFamily: "DM Sans, sans-serif"
@@ -133,23 +133,23 @@ The palette comes from Eunice’s dining-room olive and the natural materials of
 
 ## Typography
 
-**Heading Font:** Gambarino (with Georgia fallback)
+**Heading Font:** Fraunces (Google Fonts, with Georgia fallback)
 
 **Body Font:** DM Sans (with sans-serif fallback)
 
-**Character:** Gambarino is reserved for H1 and H2 statements, giving the major hierarchy a distinctive, softly sculpted voice. DM Sans carries H3 titles, supporting details, and body copy with practical clarity. Keeping the system to two families makes it feel personal and composed without becoming ornamental.
+**Character:** Fraunces is reserved for H1 and H2 statements, giving the major hierarchy a distinctive, softly sculpted voice. DM Sans carries H3 titles, supporting details, and body copy with practical clarity. Keeping the system to two families makes it feel personal and composed without becoming ornamental.
 
 ### Hierarchy
 
-- **Display** (400, fluid 3rem–4.9rem, 0.98): Hero statements only. Cap line width near 13 characters and reduce to approximately 2.65rem–3.35rem on mobile.
-- **Headline** (400, fluid 2.1rem–3.55rem, 1.04): Section introductions and major booking-page statements. On mobile, use 2rem–2.65rem so section headings remain clearly subordinate to the hero.
+- **Display** (400, fluid 3rem–4.9rem, 1.14): Hero statements only. Cap line width near 13 characters and reduce to approximately 2.65rem–3.35rem on mobile.
+- **Headline** (400, fluid 2.1rem–3.55rem, 1.18): Section introductions and major booking-page statements. On mobile, use 2rem–2.65rem so section headings remain clearly subordinate to the hero.
 - **Title** (600, fluid 1.4rem–2rem, 1.16): DM Sans H3 headings for support topics, session steps, and logistics titles.
 - **Body** (400, 1rem, 1.7): Explanations and guidance, normally capped between 60 and 70 characters per line.
 - **Label** (600, 0.875rem, 0.01em, sentence case): Eyebrows, field labels, navigation, and short metadata. Avoid automatic uppercase and wide tracking.
 
 **The Calm Scale Rule.** Display type must support the portrait and message rather than dominate the viewport. The hero headline ceiling is 4.9rem, and mobile display type never exceeds 3.35rem.
 
-**The Heading Contrast Rule.** Section H2s top out at 3.55rem—well below the 4.9rem hero ceiling—and use a slightly more open 1.04 line height. This keeps page hierarchy legible even when H1 and H2 appear within adjacent sections.
+**The Heading Contrast Rule.** Section H2s top out at 3.55rem—well below the 4.9rem hero ceiling—and use an open 1.18 line height. This keeps page hierarchy legible even when H1 and H2 appear within adjacent sections.
 
 **The Direct Heading Rule.** Informational sections begin with a clear, literal heading and move directly into content. Reserve label–headline–blurb compositions for the hero or a genuinely distinct narrative moment; never repeat them as page scaffolding.
 

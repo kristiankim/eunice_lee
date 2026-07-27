@@ -1,13 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
-
-@font-face {
-  font-family: 'Gambarino';
-  src: url('/Gambarino_Complete/Fonts/WEB/fonts/Gambarino-Regular.woff2') format('woff2'),
-       url('/Gambarino_Complete/Fonts/WEB/fonts/Gambarino-Regular.woff') format('woff');
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400&display=swap');
 
 :root {
   --olive: #667a52;
@@ -36,9 +27,9 @@ a { color: inherit; }
 img { display: block; max-width: 100%; }
 h1, h2, h3, p { margin-top: 0; }
 h1, h2, h3 { text-wrap: balance; }
-h1, h2 { font-family: 'Gambarino', Georgia, serif; font-weight: 400; letter-spacing: -0.025em; }
-h1 { font-size: 56px; line-height: 0.98; }
-h2 { font-size: 40px; line-height: 1.04; }
+h1, h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; letter-spacing: -0.025em; }
+h1 { font-size: 56px; line-height: 1.14; }
+h2 { font-size: 40px; line-height: 1.18; }
 h3 { font-family: 'DM Sans', sans-serif; font-weight: 600; letter-spacing: -0.015em; }
 p { line-height: 1.7; text-wrap: pretty; }
 
@@ -109,7 +100,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .support-card-image { height: 220px; display: grid; place-items: center; overflow: hidden; background: #f4ede4; }
 .support-card-image img { width: 100%; height: 100%; object-fit: contain; }
 .support-card-content { flex: 1; display: flex; flex-direction: column; gap: 24px; padding: 24px; }
-.support-card h3 { margin: 0; font-family: 'Gambarino', Georgia, serif; font-size: 24px; font-weight: 400; line-height: 1.08; letter-spacing: -.015em; }
+.support-card h3 { margin: 0; font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-weight: 400; line-height: 1.08; letter-spacing: -.015em; }
 .support-card p { margin: 0; color: #4a5c39; font-size: 1rem; line-height: 1.5; }
 
 .expect { background: var(--paper); }

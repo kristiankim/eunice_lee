@@ -11,7 +11,7 @@ Website for Eunice Lee, LCSW and Journey 2 Grow Therapy. The site introduces the
 - Practice credentials, fees, insurance guidance, office hours, and session logistics
 - Consultation form with client-side validation and configurable form submission
 - Reduced-motion support, visible focus states, semantic structure, and crisis guidance
-- Local Gambarino font assets and responsive `1x`/`2x` imagery
+- Google Fonts typography (Fraunces and DM Sans) and responsive `1x`/`2x` imagery
 
 ## Tech stack
 

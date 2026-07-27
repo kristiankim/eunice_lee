@@ -270,7 +270,6 @@ function Home({ onNavigate }) {
               <div><strong>Columbia</strong><span>MSW, 2016</span></div>
               <div><strong>CCTP</strong><span>certified, 2022</span></div>
             </div>
-            <p className="license-note">LCSW licensed in New Jersey (44SC05929300) and New York (096779).</p>
           </div>
         </div>
       </section>
