@@ -1,11 +1,10 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import Lenis from 'lenis'
 import { PortableText } from '@portabletext/react'
-import logoUrl from '../asset/J2G_Logo.svg?url'
+import logoUrl from '../assets/Journey2grow_Logo.svg?url'
 import { urlForImage } from './sanity/image'
 import {
   ArrowRightIcon as ArrowRight,
-  CalendarBlankIcon as CalendarBlank,
   CaretDownIcon as CaretDown,
   CheckIcon as Check,
   GlobeHemisphereWestIcon as GlobeHemisphereWest,
@@ -198,7 +197,7 @@ function Header({ onNavigate }) {
       <header className={`site-header ${compact ? 'is-compact' : ''}`}>
         <div className="nav-shell">
           <RouteLink href="/" onNavigate={onNavigate} className="wordmark" aria-label="Journey 2 Grow Therapy home">
-            <img className="wordmark-logo" src={logoUrl} alt="" width="268" height="45" />
+            <img className="wordmark-logo" src={logoUrl} alt="" width="2188" height="571" />
           </RouteLink>
           <nav className="desktop-nav" aria-label="Primary navigation">
             <RouteLink href="/blog" className="nav-link">Journal</RouteLink>
@@ -407,12 +406,6 @@ function Booking() {
       </section>
       <section className="booking-content section-pad">
         <div className="page-shell booking-grid">
-          <aside className="booking-aside">
-            <div className="aside-block"><CalendarBlank size={25} /><div><h2>What happens next</h2><p>I will review your inquiry and follow up to arrange a free 15-minute consultation.</p></div></div>
-            <div className="aside-block"><Translate size={25} /><div><h2>Contact preference</h2><p>Email or text is best. I may not be able to answer phone calls while I’m in session.</p></div></div>
-            <div className="aside-block"><MapPin size={25} /><div><h2>In-person location</h2><address>233 Mt. Airy Rd.<br />Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div></div>
-            <div className="crisis-note"><strong>Need immediate help?</strong><p>This form is not monitored for emergencies. Call or text <a href="tel:988">988</a> for the Suicide & Crisis Lifeline, or call 911 if there is immediate danger.</p></div>
-          </aside>
           <div className="form-wrap">
             {status === 'success' ? (
               <div className="success-state" role="status"><div className="success-icon"><Check size={28} weight="bold" /></div><p className="eyebrow">Inquiry received</p><h2>Thank you for reaching out.</h2><p>I will follow up using your preferred contact method. If your needs are urgent, please call or text 988 rather than waiting for a reply.</p><button className="text-button" onClick={() => setStatus('idle')}>Send another inquiry</button></div>
@@ -440,6 +433,9 @@ function Booking() {
               </form>
             )}
           </div>
+          <aside className="booking-aside">
+            <div className="crisis-note"><strong>Need immediate help?</strong><p>This form is not monitored for emergencies. Call or text <a href="tel:988">988</a> for the Suicide & Crisis Lifeline, or call 911 if there is immediate danger.</p></div>
+          </aside>
         </div>
       </section>
     </main>
@@ -489,8 +485,7 @@ function Blog({ posts = [], configured = false }) {
     <main className="blog-page blog-index-page">
       <section className="blog-hero section-pad">
         <div className="page-shell blog-intro">
-          <p className="eyebrow">Journal</p>
-          <h1>Thoughtful notes for the work of being human.</h1>
+          <h1>Journal</h1>
           <p>Practical reflections on therapy, anxiety, relationships, identity, and navigating change.</p>
         </div>
       </section>
