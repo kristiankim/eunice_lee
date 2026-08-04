@@ -6,9 +6,9 @@ This inventory reflects the typography currently implemented in `src/styles.css`
 
 | Family | Source | Available weights | Current use |
 | --- | --- | --- | --- |
-| **Gambarino** | Self-hosted WOFF2/WOFF via `@font-face` | 400 | Display headings, section headings, support-card titles, and the closing footer statement |
+| **Fraunces** | Google Fonts import | 400 | Display headings, section headings, support-card titles, and the closing footer statement |
 | **DM Sans** | Google Fonts import | 400, 500, 600 | Body copy, navigation, buttons, labels, metadata, form controls, and most smaller titles |
-| **Georgia** | System fallback | 400 | Fallback for Gambarino |
+| **Georgia** | System fallback | 400 | Fallback for Fraunces |
 | **sans-serif** | System fallback | Browser-dependent | Fallback for DM Sans |
 
 The root typeface is **DM Sans**. The browser base size is not overridden, so the rem conversions below assume the standard `1rem = 16px`.
@@ -17,8 +17,8 @@ The root typeface is **DM Sans**. The browser base size is not overridden, so th
 
 | Style | Selector / use | Family | Size | Weight | Line height | Tracking / case |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Display / H1** | `h1`; homepage, booking, and blog heroes | Gambarino | `56px` | 400 | 0.98 | `-0.025em` |
-| **Section headline / H2** | `h2`; primary section headings | Gambarino | `40px` | 400 | 1.04 | `-0.025em` |
+| **Display / H1** | `h1`; homepage, booking, and blog heroes | Fraunces | `56px` | 400 | 1.14 | `-0.025em` |
+| **Section headline / H2** | `h2`; primary section headings | Fraunces | `40px` | 400 | 1.18 | `-0.025em` |
 | **Body** | Standard paragraphs and inherited interface text | DM Sans | `1rem` (16px) | 400 | 1.7 on `p`; normal when inherited by non-paragraph elements | Normal |
 | **Eyebrow** | `.eyebrow`; hero and status labels | DM Sans | `0.875rem` (14px) | 600 | Inherited/normal | `0.01em`, sentence case |
 | **Button / CTA** | `.button`, `.nav-cta` | DM Sans | `0.875rem` (14px) | 500 | Inherited/normal | Normal, sentence case |
@@ -34,7 +34,7 @@ The root typeface is **DM Sans**. The browser base size is not overridden, so th
 | **Credential value** | `.credentials strong` | DM Sans | `1.45rem` (23.2px) | 600 | Inherited/normal | Normal |
 | **Credential label** | `.credentials span` | DM Sans | `0.75rem` (12px) | 400 | Inherited/normal | Normal |
 | **License note** | `.license-note` | DM Sans | `0.82rem` (13.12px) | 400 | 1.7 | Normal |
-| **Support-card title** | `.support-card h3` | Gambarino | `24px` | 400 | 1.08 | `-0.015em` |
+| **Support-card title** | `.support-card h3` | Fraunces | `24px` | 400 | 1.08 | `-0.015em` |
 | **Support-card body** | `.support-card p` | DM Sans | `1rem` (16px) | 400 | 1.5 | Normal |
 | **Session number** | `.session-steps > article > span` | DM Sans | `0.68rem` (10.88px) | 400 | Inherited/normal | Normal |
 | **Session-step title** | `.session-steps h3` | DM Sans | `1.55rem` (24.8px) | 600 | Inherited/normal | `-0.015em` |
@@ -51,9 +51,9 @@ The root typeface is **DM Sans**. The browser base size is not overridden, so th
 
 | Style | Selector / use | Family | Size | Weight | Line height | Tracking / case |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Footer display** | `.footer-main h2` | Gambarino | `50px` | 400 | 1.04 by H2 inheritance | `-0.025em` |
+| **Footer display** | `.footer-main h2` | Fraunces | `50px` | 400 | 1.18 by H2 inheritance | `-0.025em` |
 | **Footer setup line** | `.footer-heading-context` | DM Sans | `0.56em` of footer display (28px) | 400 | 1.14 | `-0.01em` |
-| **Footer action line** | `.footer-heading-action` | Gambarino | Inherits footer display size | 400 | 1.02 | `-0.025em` |
+| **Footer action line** | `.footer-heading-action` | Fraunces | Inherits footer display size | 400 | 1.02 | `-0.025em` |
 | **Office-hours heading** | `.footer-hours > strong` | DM Sans | `0.75rem` (12px) | 600 | Inherited/normal | `0.08em`, uppercase |
 | **Office-hours note** | `.footer-hours > p` | DM Sans | `0.8rem` (12.8px) | 400 | 1.6 | Normal |
 | **Office-hours day** | `.footer-hours dt` | DM Sans | `0.8rem` (12.8px) | 600 | Inherited/normal | Normal |
@@ -66,11 +66,11 @@ The root typeface is **DM Sans**. The browser base size is not overridden, so th
 
 | Style | Selector / use | Family | Size | Weight | Line height | Tracking / case |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Aside title** | `.aside-block h2` | DM Sans | `0.9rem` (14.4px) | 600 | 1.04 by H2 inheritance | `0` |
+| **Aside title** | `.aside-block h2` | DM Sans | `0.9rem` (14.4px) | 600 | 1.18 by H2 inheritance | `0` |
 | **Aside detail** | `.aside-block p`, `.aside-block address` | DM Sans | `0.8rem` (12.8px) | 400 | 1.65 | Normal; address is non-italic |
 | **Crisis note** | `.crisis-note` and its `strong` | DM Sans | `0.77rem` (12.32px) | 400; `strong` is browser-bold | Normal | Normal |
 | **Crisis-note body** | `.crisis-note p` | DM Sans | Inherits `0.77rem` (12.32px) | 400 | 1.6 | Normal |
-| **Form / success heading** | `.form-heading h2`, `.success-state h2` | Gambarino | `2.7rem` (43.2px) | 400 | 1.04 | `-0.025em` |
+| **Form / success heading** | `.form-heading h2`, `.success-state h2` | Fraunces | `2.7rem` (43.2px) | 400 | 1.18 | `-0.025em` |
 | **Form heading note** | `.form-heading p` | DM Sans | `0.75rem` (12px) | 400 | 1.7 | Normal |
 | **Field label / legend** | `form label > span`, `legend`, `.message-field > span` | DM Sans | `0.76rem` (12.16px) | 600 | Inherited/normal | Normal |
 | **Optional label** | `form label > span small` | DM Sans | Inherits `0.76rem` (12.16px) | 400 | Inherited/normal | Normal |
