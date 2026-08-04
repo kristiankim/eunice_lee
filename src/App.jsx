@@ -1,11 +1,10 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import Lenis from 'lenis'
 import { PortableText } from '@portabletext/react'
-import logoUrl from '../asset/J2G_Logo.svg?url'
+import logoUrl from '../assets/Journey2grow_Logo.svg?url'
 import { urlForImage } from './sanity/image'
 import {
   ArrowRightIcon as ArrowRight,
-  CalendarBlankIcon as CalendarBlank,
   CaretDownIcon as CaretDown,
   CheckIcon as Check,
   GlobeHemisphereWestIcon as GlobeHemisphereWest,
@@ -26,7 +25,7 @@ const supportAreas = [
   ['Anger management', 'Recognize triggers and build choices before reactions take over.', '/images/support/anger-management.png', '/images/support/anger-management@2x.png'],
 ]
 
-const approaches = ['CBT', 'ACT', 'DBT', 'IFS', 'Attachment-based', 'Solution-focused', 'Person-centered', 'Trauma-focused']
+const approaches = ['Psychodynamic', 'Psychoanalytic', 'CBT', 'ACT', 'DBT', 'IFS', 'Attachment-based', 'Solution-focused', 'Person-centered', 'Trauma-focused']
 
 const acceptedInsurances = [
   'Aetna',
@@ -53,19 +52,15 @@ const acceptedInsurances = [
 const faqs = [
   {
     question: 'What kind of therapy do you offer?',
-    answer: 'I offer individual therapy for adults using an integrative approach. Depending on your needs, sessions may draw from CBT, ACT, DBT, IFS, attachment-based, solution-focused, person-centered, and trauma-focused therapy. Our work considers what is happening in your life now while making room to understand the experiences and relationship patterns that have shaped you.',
+    answer: 'I tailor therapy to each person and their needs, drawing from psychodynamic, CBT, and other evidence-based approaches. We’ll address what is happening in your life today while also exploring the patterns, experiences, and relationships that may be shaping how you feel and respond.',
   },
   {
     question: 'Is your approach brief or long-term?',
-    answer: 'Therapy may be short- or long-term depending on what you hope to work on. Shorter-term therapy often focuses on a particular concern and may include practical exercises and new skills. Longer-term work creates more room to explore broader patterns, relationships, and the connection between past experiences and your life today.',
-  },
-  {
-    question: 'How long does treatment typically last?',
-    answer: 'The length of therapy is tailored to each person rather than set in advance. We can talk about your goals, needs, and progress as the work develops, and revisit together what continues to feel useful.',
+    answer: 'Therapy can be short- or long-term depending on your needs and goals. It may focus on addressing an immediate concern, finding practical solutions, and gaining perspective in the present, or it can offer more space to explore deeper patterns in your thoughts, relationships, and life. For some, therapy is focused support during a difficult time, while for others it becomes an ongoing process of self-understanding, reflection, and personal growth.',
   },
   {
     question: 'How often would we meet?',
-    answer: 'Session frequency is based on your needs and is something we will decide together. Regular meetings can provide continuity while giving you time between sessions to reflect and practice new ways of responding.',
+    answer: 'Individual therapy sessions are typically scheduled weekly at the beginning. As we progress, we may transition to biweekly sessions depending on your needs and goals. Some clients choose to continue with monthly sessions as a way to check in, reflect on their progress, or reconnect with what they have learned and experienced in therapy. There is no one-size-fits-all approach to frequency, and I’m always happy to discuss what feels most helpful and appropriate for you.',
   },
   {
     question: 'How long are sessions?',
@@ -73,7 +68,11 @@ const faqs = [
   },
   {
     question: 'Can I bring someone to my sessions?',
-    answer: 'My primary focus is individual therapy. In some circumstances, it may be helpful for a significant person in your life to join a session. We would discuss and plan this together in advance, with attention to your comfort, privacy, and therapeutic goals.',
+    answer: 'My primary focus is individual therapy. However, depending on your needs and treatment goals, it may sometimes be helpful to invite someone important in your life to participate in a session. If we feel that a couples or family session would be beneficial, we will discuss it together and plan in advance so that everyone is prepared and the session remains focused on your therapeutic goals. We will also talk through how confidentiality may be affected when another person is involved, so you can make an informed and comfortable decision.',
+  },
+  {
+    question: 'What hours do you offer?',
+    answer: 'My regular hours are Monday through Friday during the daytime. I understand that standard business hours do not work for everyone, so I can occasionally arrange an evening session when scheduling requires it. We can discuss your scheduling needs during our initial consultation.',
   },
 ]
 
@@ -113,6 +112,8 @@ function ScrollReveal({ path }) {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const selector = [
       '.about-grid > *',
+      '.meet-grid > *',
+      '.meet-trust',
       '.section-heading > *',
       '.support-card',
       '.expect-grid > *',
@@ -129,7 +130,6 @@ function ScrollReveal({ path }) {
       '.blog-card',
       '.post-content > *',
       '.footer-main > *',
-      '.footer-hours',
       '.footer-detail',
       '.footer-copyright',
     ].join(',')
@@ -198,7 +198,7 @@ function Header({ onNavigate }) {
       <header className={`site-header ${compact ? 'is-compact' : ''}`}>
         <div className="nav-shell">
           <RouteLink href="/" onNavigate={onNavigate} className="wordmark" aria-label="Journey 2 Grow Therapy home">
-            <img className="wordmark-logo" src={logoUrl} alt="" width="268" height="45" />
+            <img className="wordmark-logo" src={logoUrl} alt="" width="2188" height="571" />
           </RouteLink>
           <nav className="desktop-nav" aria-label="Primary navigation">
             <RouteLink href="/blog" className="nav-link">Journal</RouteLink>
@@ -242,23 +242,43 @@ function Home({ onNavigate }) {
   return (
     <main>
       <section className="hero section-pad">
-        <div className="hero-grid page-shell">
-          <div className="hero-copy reveal">
-            <p className="eyebrow">Individual therapy for adults</p>
-            <h1>Professional therapy for anxiety, relationships, and life transitions.</h1>
-            <p className="hero-intro">I'm Eunice Lee, an LCSW licensed in New York and New Jersey. I offer individual therapy online and in person in Basking Ridge, NJ, with support available in English and Korean.</p>
-            <ButtonLink onNavigate={onNavigate}>Request a free 15-minute consultation</ButtonLink>
+        <div className="page-shell hero-copy reveal">
+          <h1>Welcome. I’m glad you’re here.</h1>
+          <div className="hero-intro">
+            <p>Sometimes, we find ourselves carrying questions, feelings, or struggles that are difficult to put into words—or difficult to share with anyone else.</p>
+            <p>Therapy can be a supportive place to slow down, feel heard, and explore what matters to you. It can be a space not only to work through life’s challenges, but also to better understand yourself, your relationships, and the questions you may have been quietly carrying on your own.</p>
+            <p>You don’t have to have everything figured out before you begin.</p>
+            <p>Perhaps therapy can be a place to begin exploring.</p>
           </div>
-          <div className="portrait-composition reveal reveal-delay">
+          <ButtonLink onNavigate={onNavigate}>Request a free 15-minute consultation</ButtonLink>
+        </div>
+      </section>
+
+      <section className="meet section-pad" id="about">
+        <div className="page-shell meet-grid">
+          <div className="portrait-composition">
             <div className="portrait-frame">
               <img src="/images/eunice-lee.png" width="320" height="400" alt="Eunice Lee, licensed clinical social worker" />
             </div>
           </div>
+          <div className="meet-copy">
+            <h2>Meet Eunice</h2>
+            <p className="meet-lead">I believe therapy is a place where you can feel supported, understood, and curious about yourself.</p>
+            <p>I’m Eunice Lee, a Licensed Clinical Social Worker licensed in New York and New Jersey.</p>
+            <p>My approach is warm, thoughtful, and collaborative. I draw from psychodynamic, cognitive-behavioral, and other evidence-based approaches, adapting therapy to each person and their unique needs.</p>
+            <p>I’m not the kind of therapist who simply sits quietly and nods. I listen carefully, but I also ask questions, offer observations, and gently challenge you when it may help. Together, we can explore the patterns that show up within you, in your relationships, and throughout your life—and understand how your past experiences may be shaping your present.</p>
+            <p>Therapy can also be a place to explore the private questions that matter deeply to you: who you are, what you want, and what gives your life meaning.</p>
+            <p>My goal is not only to help you feel better, but to help you understand yourself more deeply and find a way forward that feels meaningful to you.</p>
+            <aside className="how-i-work">
+              <h3>How I Work</h3>
+              <p>I listen closely. I ask questions. I help you notice patterns. And I walk alongside you as you discover what matters and what you want to change.</p>
+            </aside>
+          </div>
         </div>
-        <div className="page-shell hero-trust"><TrustRow /></div>
+        <div className="page-shell meet-trust"><TrustRow /></div>
       </section>
 
-      <section className="about section-pad" id="about">
+      <section className="about section-pad">
         <div className="page-shell about-grid">
           <div>
             <h2><span className="no-break">A collaborative</span> space to understand what you’re carrying.</h2>
@@ -270,7 +290,6 @@ function Home({ onNavigate }) {
               <div><strong>Columbia</strong><span>MSW, 2016</span></div>
               <div><strong>CCTP</strong><span>certified, 2022</span></div>
             </div>
-            <p className="license-note">LCSW licensed in New Jersey (44SC05929300) and New York (096779).</p>
           </div>
         </div>
       </section>
@@ -301,7 +320,8 @@ function Home({ onNavigate }) {
         <div className="page-shell expect-grid">
           <div className="expect-sticky">
             <h2>What to expect</h2>
-            <p>Therapy is paced collaboratively, with room for practical tools, reflection, and the context that has shaped you.</p>
+            <p className="expect-lead">Warmth. Curiosity. Honest conversation.</p>
+            <p>A space where you can feel heard while also being gently encouraged to look deeper, discover patterns, and understand yourself in new ways.</p>
           </div>
           <div className="session-steps">
             <article><span>01</span><div><h3>Begin with an intake</h3><p>Your first 75-minute session offers time to share what brings you in and what you hope might change.</p></div></article>
@@ -310,6 +330,7 @@ function Home({ onNavigate }) {
             <div className="approach-cloud" aria-label="Therapy approaches used">
               {approaches.map((approach) => <span key={approach}>{approach}</span>)}
             </div>
+            <p className="approach-note">These modalities reflect the approaches I draw from in sessions, tailored to each client’s needs and style.</p>
           </div>
         </div>
       </section>
@@ -325,16 +346,6 @@ function Home({ onNavigate }) {
             </ul>
             <p className="fees-note">If you’re not sure whether your plan is included, please reach out and we can figure it out together.</p>
             <ButtonLink onNavigate={onNavigate}>Ask about insurance</ButtonLink>
-          </div>
-        </div>
-      </section>
-
-      <section className="logistics section-pad">
-        <div className="page-shell">
-          <div className="logistics-top"><h2>Online and in-person sessions</h2></div>
-          <div className="logistics-grid">
-            <article className="online-card"><GlobeHemisphereWest size={30} /><div><p className="card-kicker">Online</p><h3>Meet from a private space that feels comfortable.</h3><p>Secure video sessions are available to clients located in New York or New Jersey at the time of their appointment.</p></div></article>
-            <article className="office-card"><MapPin size={30} /><div><p className="card-kicker">In person</p><h3>Journey 2 Grow Therapy</h3><address>233 Mt. Airy Rd.<br />Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div></article>
           </div>
         </div>
       </section>
@@ -355,6 +366,16 @@ function Home({ onNavigate }) {
                 <div className="faq-answer"><p>{answer}</p></div>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="logistics section-pad">
+        <div className="page-shell">
+          <div className="logistics-top"><h2>Online and in-person sessions</h2></div>
+          <div className="logistics-grid">
+            <article className="online-card"><GlobeHemisphereWest size={30} /><div><p className="card-kicker">Online</p><h3>Meet from a private space that feels comfortable.</h3><p>Secure video sessions are available to clients located in New York or New Jersey at the time of their appointment.</p></div></article>
+            <article className="office-card"><MapPin size={30} /><div><p className="card-kicker">In person</p><h3>Journey 2 Grow Therapy</h3><address>233 Mt. Airy Rd.<br />Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div></article>
           </div>
         </div>
       </section>
@@ -408,12 +429,6 @@ function Booking() {
       </section>
       <section className="booking-content section-pad">
         <div className="page-shell booking-grid">
-          <aside className="booking-aside">
-            <div className="aside-block"><CalendarBlank size={25} /><div><h2>What happens next</h2><p>I will review your inquiry and follow up to arrange a free 15-minute consultation.</p></div></div>
-            <div className="aside-block"><Translate size={25} /><div><h2>Contact preference</h2><p>Email or text is best. I may not be able to answer phone calls while I’m in session.</p></div></div>
-            <div className="aside-block"><MapPin size={25} /><div><h2>In-person location</h2><address>233 Mt. Airy Rd.<br />Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div></div>
-            <div className="crisis-note"><strong>Need immediate help?</strong><p>This form is not monitored for emergencies. Call or text <a href="tel:988">988</a> for the Suicide & Crisis Lifeline, or call 911 if there is immediate danger.</p></div>
-          </aside>
           <div className="form-wrap">
             {status === 'success' ? (
               <div className="success-state" role="status"><div className="success-icon"><Check size={28} weight="bold" /></div><p className="eyebrow">Inquiry received</p><h2>Thank you for reaching out.</h2><p>I will follow up using your preferred contact method. If your needs are urgent, please call or text 988 rather than waiting for a reply.</p><button className="text-button" onClick={() => setStatus('idle')}>Send another inquiry</button></div>
@@ -441,6 +456,9 @@ function Booking() {
               </form>
             )}
           </div>
+          <aside className="booking-aside">
+            <div className="crisis-note"><strong>Need immediate help?</strong><p>This form is not monitored for emergencies. Call or text <a href="tel:988">988</a> for the Suicide & Crisis Lifeline, or call 911 if there is immediate danger.</p></div>
+          </aside>
         </div>
       </section>
     </main>
@@ -490,8 +508,7 @@ function Blog({ posts = [], configured = false }) {
     <main className="blog-page blog-index-page">
       <section className="blog-hero section-pad">
         <div className="page-shell blog-intro">
-          <p className="eyebrow">Journal</p>
-          <h1>Thoughtful notes for the work of being human.</h1>
+          <h1>Journal</h1>
           <p>Practical reflections on therapy, anxiety, relationships, identity, and navigating change.</p>
         </div>
       </section>
@@ -577,13 +594,9 @@ function Footer({ onNavigate }) {
       <div className="footer-overlay" />
       <div className="page-shell footer-content">
         <div className="footer-main">
-          <h2><span className="footer-heading-context">If you’re considering therapy but not sure where to begin,</span><span className="footer-heading-action">start with a brief conversation.</span></h2>
-          <ButtonLink onNavigate={onNavigate} light>Send an inquiry</ButtonLink>
+          <h2><span className="footer-heading-context">If you’re considering therapy but not sure where to begin,</span>{' '}<span className="footer-heading-action">start with a brief conversation.</span></h2>
+          <ButtonLink onNavigate={onNavigate} light>Book a consultation</ButtonLink>
         </div>
-        <aside className="footer-hours">
-          <strong>Hours: Monday through Friday daytime.</strong>
-          <p><em>I understand standard business hours don't work for everyone. While my regular schedule is during the day, I can occasionally arrange an evening session if your schedule requires it. Let's discuss your scheduling needs during our initial consultation.</em></p>
-        </aside>
         <div className="footer-detail"><strong>Practice</strong><span>Eunice Lee, LCSW</span><span>Licensed in New York &amp; New Jersey</span></div>
         <div className="footer-detail"><strong>Office</strong><address>233 Mt. Airy Rd., Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div>
         <nav className="footer-detail footer-links" aria-label="Footer navigation"><strong>Explore</strong><div><RouteLink href="/" onNavigate={onNavigate}>Home</RouteLink><RouteLink href="/blog">Journal</RouteLink><RouteLink href="/booking" onNavigate={onNavigate}>Booking</RouteLink></div></nav>
