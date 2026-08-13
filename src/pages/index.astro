@@ -1,8 +1,27 @@
 ---
 import App from '../App.jsx'
 import Layout from '../layouts/Layout.astro'
+import TemporaryHome from '../components/TemporaryHome.astro'
+import TemporaryLayout from '../layouts/TemporaryLayout.astro'
+
+const showTemporaryHome = import.meta.env.TEMPORARY_HOME === 'true'
 ---
 
-<Layout title="Eunice Lee, LCSW | Journey 2 Grow Therapy">
-  <App path="/" client:load />
-</Layout>
+{
+  showTemporaryHome ? (
+    <TemporaryLayout
+      title="Journey 2 Grow Therapy | Website Coming Soon"
+      description="Journey 2 Grow Therapy is accepting consultation requests for individual therapy online and in person in Basking Ridge, NJ."
+      robots="noindex, nofollow"
+    >
+      <TemporaryHome />
+    </TemporaryLayout>
+  ) : (
+    <Layout
+      title="Eunice Lee, LCSW | Journey 2 Grow Therapy"
+      description="Individual therapy with Eunice Lee, LCSW, online in New York and New Jersey and in person in Basking Ridge, NJ. Therapy in English and Korean."
+    >
+      <App path="/" client:load />
+    </Layout>
+  )
+}

@@ -61,6 +61,8 @@ PUBLIC_FORM_ENDPOINT=https://example.com/form-endpoint
 
 The form submits `multipart/form-data` with a `POST` request. When the variable is not configured, the interface uses a simulated successful submission for local development.
 
+The temporary homepage uses the connected Resend integration and the server-side `/api/request-session` Vercel Function. Set `SESSION_REQUEST_TO_EMAIL` in Vercel to the inbox that should receive those requests. `RESEND_API_KEY` and `RESEND_EMAIL_DOMAIN` are managed automatically by the Marketplace integration.
+
 Do not commit `.env.local` or secrets to the repository.
 
 ## Sanity blog configuration

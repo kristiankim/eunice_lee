@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string
+  description: string
+  robots?: string
+}
+
+const {
+  title,
+  description,
+  robots = 'index, follow',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#edeae4" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

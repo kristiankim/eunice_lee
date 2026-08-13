@@ -1,0 +1,250 @@
+/*
+ * Home concept sandbox
+ *
+ * Keep experimental overrides scoped below `.home-concept-root` so changes
+ * made here cannot alter the production homepage at `/`.
+ */
+
+.home-concept-root {
+  isolation: isolate;
+  overflow: clip;
+}
+
+.home-concept-root .meet-copy .meet-lead,
+.home-concept-root .how-i-work h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+}
+
+.home-concept-root .support-card h3 {
+  font-family: 'P22 Mackinac W01 Book', 'Fraunces', Georgia, serif;
+  font-weight: 400;
+}
+
+.home-concept-root .support {
+  position: relative;
+  isolation: isolate;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.home-concept-root .support > .page-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.concept-section-branch-right {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: clamp(-245px, -11vw, -150px);
+  width: clamp(320px, 25vw, 460px);
+  max-width: none;
+  height: auto;
+  transform: translateY(-48%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.home-concept-root .support-heading h2 {
+  color: var(--ink);
+}
+
+.home-concept-root .support-heading > span {
+  background: var(--olive);
+}
+
+.home-concept-root .support-card,
+.home-concept-root .support-card-image {
+  background: var(--linen);
+}
+
+.concept-support-ground {
+  position: absolute;
+  z-index: 0;
+  right: clamp(-170px, -7vw, -80px);
+  bottom: clamp(54px, 6vw, 92px);
+  width: min(63vw, 1040px);
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.home-concept-root .expect-sticky .expect-lead {
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: normal;
+}
+
+.home-concept-root .insurance-list li {
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+}
+
+.home-concept-root .insurance-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.concept-footer .footer-heading-action {
+  font-family: 'P22 Mackinac W01 Book', 'Fraunces', Georgia, serif;
+  font-weight: 400;
+}
+
+.home-concept-root .concept-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100dvh - 86px);
+  background: var(--paper);
+}
+
+.concept-hero-media,
+.concept-hero-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.concept-hero-media {
+  z-index: -2;
+  overflow: hidden;
+  background: #f6f3ed url('/images/home-concept/hero/olivegree-hero-bg-poster.png') center / cover no-repeat;
+}
+
+.concept-hero-media video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.concept-hero-scrim {
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(246, 243, 237, .34) 0%,
+      rgba(246, 243, 237, .18) 38%,
+      rgba(246, 243, 237, 0) 64%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(246, 243, 237, 0) 76%,
+      rgba(246, 243, 237, .28) 86%,
+      rgba(237, 234, 228, .82) 96%,
+      var(--paper) 100%
+    );
+}
+
+.home-concept-root .concept-hero .hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.home-concept-root .concept-meet {
+  position: relative;
+  overflow: clip;
+  background:
+    radial-gradient(circle at 100% 18%, rgba(230, 238, 205, .28), transparent 30rem),
+    var(--paper);
+}
+
+.home-concept-root .concept-meet > .page-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.home-concept-root .concept-about {
+  position: relative;
+  padding-block: clamp(220px, 18vw, 280px);
+  background: var(--paper);
+}
+
+.home-concept-root .concept-about .about-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.concept-section-branch {
+  position: absolute;
+  z-index: 0;
+  top: clamp(-250px, -14vw, -170px);
+  left: clamp(-280px, -13vw, -200px);
+  width: clamp(340px, 27vw, 500px);
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (min-width: 681px) and (max-width: 920px) {
+  .concept-section-branch {
+    top: -105px;
+    left: -180px;
+    width: 240px;
+    opacity: .88;
+  }
+
+  .concept-section-branch-right {
+    right: -120px;
+    width: 260px;
+    opacity: .88;
+    transform: translateY(-50%);
+  }
+  .concept-support-ground {
+    right: -135px;
+    bottom: 58px;
+    width: 68vw;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-concept-root .concept-hero {
+    min-height: calc(100dvh - 72px);
+    padding-block: 56px 80px;
+    background: var(--paper);
+  }
+
+  .concept-hero-media video {
+    object-position: 68% center;
+  }
+
+  .concept-hero-scrim {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(246, 243, 237, .96) 0%,
+        rgba(246, 243, 237, .84) 62%,
+        rgba(246, 243, 237, .34) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(246, 243, 237, 0) 72%,
+        rgba(237, 234, 228, .86) 94%,
+        var(--paper) 100%
+      );
+  }
+
+  .concept-section-branch,
+  .concept-section-branch-right,
+  .concept-support-ground {
+    display: none;
+  }
+
+  .home-concept-root .concept-about {
+    padding-block: 72px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .concept-hero-media video {
+    display: none;
+  }
+
+}

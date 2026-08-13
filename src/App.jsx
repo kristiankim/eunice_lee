@@ -1,7 +1,8 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import Lenis from 'lenis'
 import { PortableText } from '@portabletext/react'
-import logoUrl from '../assets/Journey2grow_Logo.svg?url'
+import logoUrl from '../assets/Journey2grow_Logo 3.svg?url'
+import HomeConcept from './HomeConcept.jsx'
 import { urlForImage } from './sanity/image'
 import {
   ArrowRightIcon as ArrowRight,
@@ -23,6 +24,9 @@ const supportAreas = [
   ['Immigration & adjustment', 'Process belonging, identity, and the strain of adaptation.', '/images/support/immigration-adjustment.png', '/images/support/immigration-adjustment@2x.png'],
   ['Self-esteem', 'Develop a kinder and more grounded relationship with yourself.', '/images/support/self-esteem.png', '/images/support/self-esteem@2x.png'],
   ['Anger management', 'Recognize triggers and build choices before reactions take over.', '/images/support/anger-management.png', '/images/support/anger-management@2x.png'],
+  ['Faith-based', 'Navigate your quest based on your faith. You shouldn’t have to choose between faith and therapy.', '/images/support/faith-based-illustration.png', '/images/support/faith-based-illustration@2x.png'],
+  ['Trauma', 'Process painful events, reduce distress, and build healthy coping skills.', '/images/support/Area - Trauma.png', '/images/support/Area - Trauma@2x.png'],
+  ['Career development', 'It helps you clarify your personal values, remove mental blocks, and build a sustainable professional path.', '/images/support/Area - Career development.png', '/images/support/Area - Career development@2x.png'],
 ]
 
 const approaches = ['Psychodynamic', 'Psychoanalytic', 'CBT', 'ACT', 'DBT', 'IFS', 'Attachment-based', 'Solution-focused', 'Person-centered', 'Trauma-focused']
@@ -198,7 +202,13 @@ function Header({ onNavigate }) {
       <header className={`site-header ${compact ? 'is-compact' : ''}`}>
         <div className="nav-shell">
           <RouteLink href="/" onNavigate={onNavigate} className="wordmark" aria-label="Journey 2 Grow Therapy home">
-            <img className="wordmark-logo" src={logoUrl} alt="" width="2188" height="571" />
+            <img
+              className="wordmark-logo"
+              src={logoUrl}
+              alt=""
+              width="548"
+              height="269"
+            />
           </RouteLink>
           <nav className="desktop-nav" aria-label="Primary navigation">
             <RouteLink href="/blog" className="nav-link">Journal</RouteLink>
@@ -587,9 +597,9 @@ function BlogPost({ post }) {
   )
 }
 
-function Footer({ onNavigate }) {
+function Footer({ onNavigate, concept = false }) {
   return (
-    <footer className="site-footer">
+    <footer className={`site-footer ${concept ? 'concept-footer' : ''}`}>
       <div className="footer-image" aria-hidden="true" />
       <div className="footer-overlay" />
       <div className="page-shell footer-content">
@@ -615,12 +625,15 @@ function Footer({ onNavigate }) {
  * }} props
  */
 export default function App({ path = '/', posts = [], configured = false, post = null }) {
+  const isApprovedHome = path === '/' || path === '/home-concept'
   const page = path === '/booking'
     ? <Booking />
+    : isApprovedHome
+      ? <HomeConcept />
     : path.startsWith('/blog/')
       ? <BlogPost post={post} />
       : path === '/blog'
         ? <Blog posts={posts} configured={configured} />
         : <Home />
-  return <><SmoothScroll /><ScrollReveal path={path} /><Header />{page}<Footer /></>
+  return <><SmoothScroll /><ScrollReveal path={path} /><Header />{page}<Footer concept={isApprovedHome} /></>
 }
