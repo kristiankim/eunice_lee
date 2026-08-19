@@ -414,15 +414,34 @@ function Booking() {
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length) return
     setStatus('loading')
-    const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT
+    const requestId = form.dataset.requestId
+      || globalThis.crypto?.randomUUID?.()
+      || `${Date.now()}-${Math.random().toString(16).slice(2)}`
+
+    form.dataset.requestId = requestId
     try {
-      if (endpoint) {
-        const response = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
-        if (!response.ok) throw new Error('Unable to send')
-      } else {
-        await new Promise((resolve) => setTimeout(resolve, 700))
-      }
+      const response = await fetch('/api/request-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          phone: data.get('phone'),
+          contactMethod: data.get('contact'),
+          stateLocation: data.get('state'),
+          sessionPreference: data.get('session'),
+          supportReasons: data.getAll('support'),
+          message: data.get('message'),
+          consent: data.get('consent') === 'on',
+          website: data.get('website'),
+          requestId,
+        }),
+      })
+
+      if (!response.ok) throw new Error('Unable to send')
+
       form.reset()
+      delete form.dataset.requestId
       setStatus('success')
     } catch {
       setStatus('error')
@@ -461,6 +480,7 @@ function Booking() {
                 <label className="message-field"><span>Short message</span><textarea name="message" rows="5" placeholder="Briefly tell me what you’re hoping to get support with." /><small>Please avoid urgent, crisis, or highly sensitive medical details in this form.</small></label>
                 <label className="consent"><input type="checkbox" name="consent" /><span>I understand this form is for consultation inquiries and is not for emergencies. *</span></label>
                 <FieldError>{errors.consent}</FieldError>
+                <label className="website-field" aria-hidden="true">Website<input name="website" type="text" tabIndex="-1" autoComplete="off" /></label>
                 {status === 'error' && <div className="submit-error" role="alert">Your inquiry couldn’t be sent. Please try again in a moment.</div>}
                 <button className="button submit-button" type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Sending…' : 'Submit'}{status !== 'loading' && <ArrowRight size={17} weight="bold" />}</button>
               </form>

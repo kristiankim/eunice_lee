@@ -14,6 +14,8 @@ const supportReasonOptions = new Set([
   'Career development',
   'Other',
 ])
+const contactMethodOptions = new Set(['Email', 'Text', 'Phone', 'Not provided'])
+const stateLocationOptions = new Set(['NJ', 'NY', 'Other', 'Not provided'])
 
 function clean(value: unknown, maxLength: number) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : ''
@@ -75,13 +77,22 @@ export async function POST(request: Request) {
   const name = clean(payload.name, 100)
   const email = clean(payload.email, 200).toLowerCase()
   const phone = clean(payload.phone, 30)
+  const contactMethod = clean(payload.contactMethod, 20) || 'Not provided'
+  const stateLocation = clean(payload.stateLocation, 20) || 'Not provided'
   const sessionPreference = clean(payload.sessionPreference, 80)
   const supportReasons = cleanSupportReasons(payload.supportReasons)
   const message = clean(payload.message, 2000)
   const consent = payload.consent === true
   const submittedRequestId = clean(payload.requestId, 80)
 
-  if (!name || !emailPattern.test(email) || !sessionPreference || !consent) {
+  if (
+    !name
+    || !emailPattern.test(email)
+    || !contactMethodOptions.has(contactMethod)
+    || !stateLocationOptions.has(stateLocation)
+    || !sessionPreference
+    || !consent
+  ) {
     return Response.json({ error: 'Please complete the required fields.' }, { status: 422 })
   }
 
@@ -101,6 +112,8 @@ export async function POST(request: Request) {
   const safeName = escapeHtml(name)
   const safeEmail = escapeHtml(email)
   const safePhone = escapeHtml(phone || 'Not provided')
+  const safeContactMethod = escapeHtml(contactMethod)
+  const safeStateLocation = escapeHtml(stateLocation)
   const safePreference = escapeHtml(sessionPreference)
   const safeSupportReasons = escapeHtml(supportReasons.join(', ') || 'Not provided')
   const safeMessage = escapeHtml(message || 'No message provided').replace(/\n/g, '<br />')
@@ -116,6 +129,8 @@ export async function POST(request: Request) {
         <p><strong>Name:</strong> ${safeName}</p>
         <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Phone:</strong> ${safePhone}</p>
+        <p><strong>Preferred contact method:</strong> ${safeContactMethod}</p>
+        <p><strong>State / location:</strong> ${safeStateLocation}</p>
         <p><strong>Session preference:</strong> ${safePreference}</p>
         <p><strong>Main reasons for seeking support:</strong> ${safeSupportReasons}</p>
         <p><strong>Message:</strong><br />${safeMessage}</p>
@@ -125,6 +140,8 @@ export async function POST(request: Request) {
         `Name: ${name}`,
         `Email: ${email}`,
         `Phone: ${phone || 'Not provided'}`,
+        `Preferred contact method: ${contactMethod}`,
+        `State / location: ${stateLocation}`,
         `Session preference: ${sessionPreference}`,
         `Main reasons for seeking support: ${supportReasons.join(', ') || 'Not provided'}`,
         `Message: ${message || 'No message provided'}`,
