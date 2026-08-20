@@ -110,7 +110,7 @@ export default function HomeConcept() {
         </div>
         <div className="concept-hero-scrim" aria-hidden="true" />
         <div className="page-shell hero-copy reveal">
-          <h1>Welcome. I’m glad you’re here.</h1>
+          <h1>Welcome,<br />I’m glad you are here.</h1>
           <div className="hero-intro">
             <p>Sometimes, we find ourselves carrying questions, feelings, or struggles that are difficult to put into words—or difficult to share with anyone else.</p>
             <p>Therapy can be a supportive place to slow down, feel heard, and explore what matters to you. It can be a space not only to work through life’s challenges, but also to better understand yourself, your relationships, and the questions you may have been quietly carrying on your own.</p>

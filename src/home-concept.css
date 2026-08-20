@@ -10,7 +10,12 @@
   overflow: clip;
 }
 
-.home-concept-root .meet-copy .meet-lead,
+.home-concept-root .meet-copy .meet-lead {
+  color: var(--olive);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
+
 .home-concept-root .how-i-work h3 {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
