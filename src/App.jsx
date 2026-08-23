@@ -211,7 +211,6 @@ function Header({ onNavigate }) {
             />
           </RouteLink>
           <nav className="desktop-nav" aria-label="Primary navigation">
-            <RouteLink href="/blog" className="nav-link">Journal</RouteLink>
             <RouteLink href="/booking" onNavigate={onNavigate} className="nav-cta">Book a consultation <ArrowRight size={16} weight="bold" /></RouteLink>
           </nav>
           <button className="menu-button" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
@@ -221,7 +220,6 @@ function Header({ onNavigate }) {
         {open && (
           <nav className="mobile-nav" aria-label="Mobile navigation">
             <RouteLink href="/" onNavigate={(href) => { onNavigate(href); setOpen(false) }}>Home</RouteLink>
-            <RouteLink href="/blog">Journal</RouteLink>
             <RouteLink href="/booking" onNavigate={(href) => { onNavigate(href); setOpen(false) }}>Book a consultation</RouteLink>
           </nav>
         )}
@@ -452,7 +450,7 @@ function Booking() {
     <main className="booking-page">
       <section className="booking-hero section-pad">
         <div className="page-shell booking-hero-grid">
-          <div><p className="eyebrow">Free 15-minute consultation</p><h1>Let’s see if working together feels like a good fit.</h1></div>
+          <div><p className="eyebrow">Free 15-minute consultation</p><h1>Tell me about why you are here.</h1></div>
           <p>This brief form is simply a starting point. Share what you’re looking for and how you prefer to be contacted. You don’t need to tell your whole story here.</p>
         </div>
       </section>
@@ -629,7 +627,7 @@ function Footer({ onNavigate, concept = false }) {
         </div>
         <div className="footer-detail"><strong>Practice</strong><span>Eunice Lee, LCSW</span><span>Licensed in New York &amp; New Jersey</span></div>
         <div className="footer-detail"><strong>Office</strong><address>233 Mt. Airy Rd., Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div>
-        <nav className="footer-detail footer-links" aria-label="Footer navigation"><strong>Explore</strong><div><RouteLink href="/" onNavigate={onNavigate}>Home</RouteLink><RouteLink href="/blog">Journal</RouteLink><RouteLink href="/booking" onNavigate={onNavigate}>Booking</RouteLink></div></nav>
+        <nav className="footer-detail footer-links" aria-label="Footer navigation"><strong>Explore</strong><div><RouteLink href="/" onNavigate={onNavigate}>Home</RouteLink><RouteLink href="/booking" onNavigate={onNavigate}>Booking</RouteLink></div></nav>
         <p className="footer-copyright">© {new Date().getFullYear()} Journey 2 Grow Therapy. All rights reserved.</p>
       </div>
     </footer>

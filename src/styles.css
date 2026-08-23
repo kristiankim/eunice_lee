@@ -79,7 +79,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .trust-row > div + div { border-left: 1px solid var(--line); }
 
 .meet { padding-bottom: 0; background: var(--paper); }
-.meet-grid { display: grid; grid-template-columns: minmax(320px, .82fr) minmax(0, 1.18fr); gap: clamp(64px, 9vw, 128px); align-items: start; }
+.meet-grid,
+.about-grid,
+.expect-grid,
+.fees-grid { grid-template-columns: minmax(320px, .82fr) minmax(0, 1.18fr); gap: clamp(64px, 9vw, 128px); }
+.meet-grid { display: grid; align-items: start; }
 .meet .portrait-composition { position: sticky; top: 110px; justify-self: start; }
 .meet-copy { max-width: 720px; }
 .meet-copy h2 { margin-bottom: 30px; }
@@ -91,7 +95,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .meet-trust { margin-top: clamp(72px, 9vw, 120px); }
 
 .about { background: var(--cream); }
-.about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 12vw; align-items: start; }
+.about-grid { display: grid; align-items: start; }
 .about-grid h2 { margin: 0; }
 .no-break { white-space: nowrap; }
 .about-body .lead { max-width: 620px; margin-bottom: 52px; color: #424a3c; font-size: clamp(1.02rem, 1.4vw, 1.2rem); line-height: 1.7; }
@@ -119,7 +123,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .support-card p { margin: 0; color: #4a5c39; font-size: 1rem; line-height: 1.5; }
 
 .expect { background: var(--paper); }
-.expect-grid { display: grid; grid-template-columns: .8fr 1.15fr; gap: 12vw; align-items: start; }
+.expect-grid { display: grid; align-items: start; }
 .expect-sticky { position: sticky; top: 48px; }
 .expect-sticky h2 { max-width: 11ch; margin-bottom: 24px; }
 .expect-sticky > p:last-child { max-width: 480px; color: var(--muted); }
@@ -133,7 +137,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .session-steps .approach-note { max-width: 680px; margin: 12px 0 0; color: var(--muted); font-size: .9rem; }
 
 .fees { background: var(--olive); color: #fff; }
-.fees-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10vw; }
+.fees-grid { display: grid; }
 .fees-title h2 { max-width: 10ch; color: #fff; }
 .fees-copy > p { margin-bottom: 30px; color: rgba(255,255,255,.9); font-size: 1.12rem; }
 .insurance-heading { margin: 0; color: #fff; font-size: 1.08rem; }
@@ -147,7 +151,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .logistics-top { max-width: 760px; display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 58px; }
 .logistics-top h2 { max-width: 15ch; margin-bottom: 0; }
 .logistics-top > p { max-width: 620px; margin-bottom: 0; color: var(--muted); font-size: 1rem; }
-.logistics-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
+.logistics-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .logistics-grid article { min-height: 360px; display: grid; align-content: space-between; padding: clamp(30px, 4vw, 54px); }
 .online-card { background: var(--linen); }
 .office-card { background: var(--olive); color: #fff; }
