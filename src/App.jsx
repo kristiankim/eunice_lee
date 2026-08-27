@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import Lenis from 'lenis'
 import { PortableText } from '@portabletext/react'
-import logoUrl from '../assets/Journey2grow_Logo 3.svg?url'
+import logoUrl from '../assets/Journey2grow_Logo 4.svg?url'
 import HomeConcept from './HomeConcept.jsx'
 import { urlForImage } from './sanity/image'
 import {
@@ -206,8 +206,8 @@ function Header({ onNavigate }) {
               className="wordmark-logo"
               src={logoUrl}
               alt=""
-              width="548"
-              height="269"
+              width="1813"
+              height="416"
             />
           </RouteLink>
           <nav className="desktop-nav" aria-label="Primary navigation">
@@ -450,7 +450,7 @@ function Booking() {
     <main className="booking-page">
       <section className="booking-hero section-pad">
         <div className="page-shell booking-hero-grid">
-          <div><p className="eyebrow">Free 15-minute consultation</p><h1>Tell me about why you are here.</h1></div>
+          <div><p className="eyebrow">Free 15-minute consultation</p><h1>It is a pleasure to meet you.<br />What brings you here?</h1></div>
           <p>This brief form is simply a starting point. Share what you’re looking for and how you prefer to be contacted. You don’t need to tell your whole story here.</p>
         </div>
       </section>
