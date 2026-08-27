@@ -1,16 +1,13 @@
 ---
-import 'lenis/dist/lenis.css'
-import '../styles.css'
-
 interface Props {
   title: string
-  description?: string
+  description: string
   robots?: string
 }
 
 const {
   title,
-  description = 'Individual therapy with Eunice Lee, LCSW, online and in person in Basking Ridge, NJ. Licensed in New York and New Jersey. Support in English and Korean.',
+  description,
   robots = 'index, follow',
 } = Astro.props
 ---

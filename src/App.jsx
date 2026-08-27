@@ -1,7 +1,8 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import Lenis from 'lenis'
 import { PortableText } from '@portabletext/react'
-import logoUrl from '../assets/Journey2grow_Logo.svg?url'
+import logoUrl from '../assets/Journey2grow_Logo 4.svg?url'
+import HomeConcept from './HomeConcept.jsx'
 import { urlForImage } from './sanity/image'
 import {
   ArrowRightIcon as ArrowRight,
@@ -23,6 +24,9 @@ const supportAreas = [
   ['Immigration & adjustment', 'Process belonging, identity, and the strain of adaptation.', '/images/support/immigration-adjustment.png', '/images/support/immigration-adjustment@2x.png'],
   ['Self-esteem', 'Develop a kinder and more grounded relationship with yourself.', '/images/support/self-esteem.png', '/images/support/self-esteem@2x.png'],
   ['Anger management', 'Recognize triggers and build choices before reactions take over.', '/images/support/anger-management.png', '/images/support/anger-management@2x.png'],
+  ['Faith-based', 'Navigate your quest based on your faith. You shouldn’t have to choose between faith and therapy.', '/images/support/faith-based-illustration.png', '/images/support/faith-based-illustration@2x.png'],
+  ['Trauma', 'Process painful events, reduce distress, and build healthy coping skills.', '/images/support/Area - Trauma.png', '/images/support/Area - Trauma@2x.png'],
+  ['Career development', 'It helps you clarify your personal values, remove mental blocks, and build a sustainable professional path.', '/images/support/Area - Career development.png', '/images/support/Area - Career development@2x.png'],
 ]
 
 const approaches = ['Psychodynamic', 'Psychoanalytic', 'CBT', 'ACT', 'DBT', 'IFS', 'Attachment-based', 'Solution-focused', 'Person-centered', 'Trauma-focused']
@@ -198,10 +202,15 @@ function Header({ onNavigate }) {
       <header className={`site-header ${compact ? 'is-compact' : ''}`}>
         <div className="nav-shell">
           <RouteLink href="/" onNavigate={onNavigate} className="wordmark" aria-label="Journey 2 Grow Therapy home">
-            <img className="wordmark-logo" src={logoUrl} alt="" width="2188" height="571" />
+            <img
+              className="wordmark-logo"
+              src={logoUrl}
+              alt=""
+              width="1813"
+              height="416"
+            />
           </RouteLink>
           <nav className="desktop-nav" aria-label="Primary navigation">
-            <RouteLink href="/blog" className="nav-link">Journal</RouteLink>
             <RouteLink href="/booking" onNavigate={onNavigate} className="nav-cta">Book a consultation <ArrowRight size={16} weight="bold" /></RouteLink>
           </nav>
           <button className="menu-button" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
@@ -211,7 +220,6 @@ function Header({ onNavigate }) {
         {open && (
           <nav className="mobile-nav" aria-label="Mobile navigation">
             <RouteLink href="/" onNavigate={(href) => { onNavigate(href); setOpen(false) }}>Home</RouteLink>
-            <RouteLink href="/blog">Journal</RouteLink>
             <RouteLink href="/booking" onNavigate={(href) => { onNavigate(href); setOpen(false) }}>Book a consultation</RouteLink>
           </nav>
         )}
@@ -243,7 +251,7 @@ function Home({ onNavigate }) {
     <main>
       <section className="hero section-pad">
         <div className="page-shell hero-copy reveal">
-          <h1>Welcome. I’m glad you’re here.</h1>
+          <h1>Welcome,<br />I’m glad you are here.</h1>
           <div className="hero-intro">
             <p>Sometimes, we find ourselves carrying questions, feelings, or struggles that are difficult to put into words—or difficult to share with anyone else.</p>
             <p>Therapy can be a supportive place to slow down, feel heard, and explore what matters to you. It can be a space not only to work through life’s challenges, but also to better understand yourself, your relationships, and the questions you may have been quietly carrying on your own.</p>
@@ -404,15 +412,34 @@ function Booking() {
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length) return
     setStatus('loading')
-    const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT
+    const requestId = form.dataset.requestId
+      || globalThis.crypto?.randomUUID?.()
+      || `${Date.now()}-${Math.random().toString(16).slice(2)}`
+
+    form.dataset.requestId = requestId
     try {
-      if (endpoint) {
-        const response = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
-        if (!response.ok) throw new Error('Unable to send')
-      } else {
-        await new Promise((resolve) => setTimeout(resolve, 700))
-      }
+      const response = await fetch('/api/request-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          phone: data.get('phone'),
+          contactMethod: data.get('contact'),
+          stateLocation: data.get('state'),
+          sessionPreference: data.get('session'),
+          supportReasons: data.getAll('support'),
+          message: data.get('message'),
+          consent: data.get('consent') === 'on',
+          website: data.get('website'),
+          requestId,
+        }),
+      })
+
+      if (!response.ok) throw new Error('Unable to send')
+
       form.reset()
+      delete form.dataset.requestId
       setStatus('success')
     } catch {
       setStatus('error')
@@ -423,7 +450,7 @@ function Booking() {
     <main className="booking-page">
       <section className="booking-hero section-pad">
         <div className="page-shell booking-hero-grid">
-          <div><p className="eyebrow">Free 15-minute consultation</p><h1>Let’s see if working together feels like a good fit.</h1></div>
+          <div><p className="eyebrow">Free 15-minute consultation</p><h1>It is a pleasure to meet you.<br />What brings you here?</h1></div>
           <p>This brief form is simply a starting point. Share what you’re looking for and how you prefer to be contacted. You don’t need to tell your whole story here.</p>
         </div>
       </section>
@@ -451,6 +478,7 @@ function Booking() {
                 <label className="message-field"><span>Short message</span><textarea name="message" rows="5" placeholder="Briefly tell me what you’re hoping to get support with." /><small>Please avoid urgent, crisis, or highly sensitive medical details in this form.</small></label>
                 <label className="consent"><input type="checkbox" name="consent" /><span>I understand this form is for consultation inquiries and is not for emergencies. *</span></label>
                 <FieldError>{errors.consent}</FieldError>
+                <label className="website-field" aria-hidden="true">Website<input name="website" type="text" tabIndex="-1" autoComplete="off" /></label>
                 {status === 'error' && <div className="submit-error" role="alert">Your inquiry couldn’t be sent. Please try again in a moment.</div>}
                 <button className="button submit-button" type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Sending…' : 'Submit'}{status !== 'loading' && <ArrowRight size={17} weight="bold" />}</button>
               </form>
@@ -587,9 +615,9 @@ function BlogPost({ post }) {
   )
 }
 
-function Footer({ onNavigate }) {
+function Footer({ onNavigate, concept = false }) {
   return (
-    <footer className="site-footer">
+    <footer className={`site-footer ${concept ? 'concept-footer' : ''}`}>
       <div className="footer-image" aria-hidden="true" />
       <div className="footer-overlay" />
       <div className="page-shell footer-content">
@@ -599,7 +627,7 @@ function Footer({ onNavigate }) {
         </div>
         <div className="footer-detail"><strong>Practice</strong><span>Eunice Lee, LCSW</span><span>Licensed in New York &amp; New Jersey</span></div>
         <div className="footer-detail"><strong>Office</strong><address>233 Mt. Airy Rd., Suite 100 – Room 103<br />Basking Ridge, NJ 07920</address></div>
-        <nav className="footer-detail footer-links" aria-label="Footer navigation"><strong>Explore</strong><div><RouteLink href="/" onNavigate={onNavigate}>Home</RouteLink><RouteLink href="/blog">Journal</RouteLink><RouteLink href="/booking" onNavigate={onNavigate}>Booking</RouteLink></div></nav>
+        <nav className="footer-detail footer-links" aria-label="Footer navigation"><strong>Explore</strong><div><RouteLink href="/" onNavigate={onNavigate}>Home</RouteLink><RouteLink href="/booking" onNavigate={onNavigate}>Booking</RouteLink></div></nav>
         <p className="footer-copyright">© {new Date().getFullYear()} Journey 2 Grow Therapy. All rights reserved.</p>
       </div>
     </footer>
@@ -615,12 +643,15 @@ function Footer({ onNavigate }) {
  * }} props
  */
 export default function App({ path = '/', posts = [], configured = false, post = null }) {
+  const isApprovedHome = path === '/' || path === '/home-concept'
   const page = path === '/booking'
     ? <Booking />
+    : isApprovedHome
+      ? <HomeConcept />
     : path.startsWith('/blog/')
       ? <BlogPost post={post} />
       : path === '/blog'
         ? <Blog posts={posts} configured={configured} />
         : <Home />
-  return <><SmoothScroll /><ScrollReveal path={path} /><Header />{page}<Footer /></>
+  return <><SmoothScroll /><ScrollReveal path={path} /><Header />{page}<Footer concept={isApprovedHome} /></>
 }
