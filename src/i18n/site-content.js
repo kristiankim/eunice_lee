@@ -135,7 +135,7 @@ export const siteContent = {
         privacy: 'Please avoid urgent, crisis, or highly sensitive medical details in this form.',
         consent: 'I understand this form is for consultation inquiries and is not for emergencies. *',
       },
-      options: { email: 'Email', text: 'Text', phone: 'Phone', other: 'Other', online: 'Online', inPerson: 'In person in Basking Ridge', unsure: 'Not sure' },
+      options: { email: 'Email', text: 'Text', phone: 'Phone', other: 'Other', online: 'Online', inPerson: 'In person in Basking Ridge', insurance: 'Insurance', unsure: 'Not sure' },
       errors: {
         name: 'Please enter your name.', email: 'Please enter a valid email address.', contact: 'Choose a preferred contact method.',
         state: 'Choose your current state or location.', session: 'Choose a session preference.', consent: 'Please confirm that you understand this form is not for emergencies.',
@@ -256,7 +256,7 @@ export const siteContent = {
         privacy: '긴급 상황, 위기 상황 또는 민감한 의료 정보는 이 양식에 자세히 적지 말아 주세요.',
         consent: '이 양식은 상담 문의를 위한 것이며 응급 상황에는 사용할 수 없음을 이해합니다. *',
       },
-      options: { email: '이메일', text: '문자', phone: '전화', other: '기타', online: '온라인', inPerson: 'Basking Ridge 대면 상담', unsure: '아직 잘 모르겠음' },
+      options: { email: '이메일', text: '문자', phone: '전화', other: '기타', online: '온라인', inPerson: 'Basking Ridge 대면 상담', insurance: '보험', unsure: '아직 잘 모르겠음' },
       errors: {
         name: '이름을 입력해 주세요.', email: '올바른 이메일 주소를 입력해 주세요.', contact: '선호하는 연락 방법을 선택해 주세요.',
         state: '현재 위치를 선택해 주세요.', session: '상담 방식을 선택해 주세요.', consent: '이 양식이 응급 상황을 위한 것이 아님을 확인해 주세요.',
