@@ -368,6 +368,8 @@ function Booking({ locale }) {
           contactMethod: data.get('contact'),
           stateLocation: data.get('state'),
           sessionPreference: data.get('session'),
+          insuranceProviders: data.getAll('insurance'),
+          insuranceOther: data.get('insuranceOther'),
           supportReasons: data.getAll('support'),
           message: data.get('message'),
           consent: data.get('consent') === 'on',
@@ -413,8 +415,18 @@ function Booking({ locale }) {
                 </div>
                 <div className="field-grid two">
                   <fieldset><legend>{booking.fields.state}</legend><div className="choice-row"><label><input type="radio" name="state" value="NJ" /> NJ</label><label><input type="radio" name="state" value="NY" /> NY</label><label><input type="radio" name="state" value="Other" /> {booking.options.other}</label></div><FieldError>{errors.state}</FieldError></fieldset>
-                  <fieldset><legend>{booking.fields.session}</legend><div className="choice-stack"><label><input type="radio" name="session" value="Online" /> {booking.options.online}</label><label><input type="radio" name="session" value="In person" /> {booking.options.inPerson}</label><label><input type="radio" name="session" value="Insurance" /> {booking.options.insurance}</label><label><input type="radio" name="session" value="Not sure" /> {booking.options.unsure}</label></div><FieldError>{errors.session}</FieldError></fieldset>
+                  <fieldset><legend>{booking.fields.session}</legend><div className="choice-stack"><label><input type="radio" name="session" value="Online" /> {booking.options.online}</label><label><input type="radio" name="session" value="In person" /> {booking.options.inPerson}</label><label><input type="radio" name="session" value="Not sure" /> {booking.options.unsure}</label></div><FieldError>{errors.session}</FieldError></fieldset>
                 </div>
+                <fieldset className="support-choices insurance-choices">
+                  <legend>{booking.insurance.title} <small>{booking.insurance.note}</small></legend>
+                  <div>
+                    {['Blue Cross Blue Shield', 'United Healthcare', 'Aetna', 'Cigna', 'Medicare'].map((provider) => <label key={provider}><input type="checkbox" name="insurance" value={provider} /> {provider}</label>)}
+                    <div className="insurance-other">
+                      <label><input type="checkbox" name="insurance" value="Other" /> {booking.insurance.other}</label>
+                      <input type="text" name="insuranceOther" maxLength={150} aria-label={booking.insurance.placeholder} placeholder={booking.insurance.placeholder} />
+                    </div>
+                  </div>
+                </fieldset>
                 <fieldset className="support-choices"><legend>{booking.fields.support}</legend><div>{copy.support.areas.map(([title], index) => <label key={title}><input type="checkbox" name="support" value={siteContent.en.support.areas[index][0]} /> {title}</label>)}<label><input type="checkbox" name="support" value="Other" /> {booking.options.other}</label></div></fieldset>
                 <label className="message-field"><span>{booking.fields.message}</span><textarea name="message" rows="5" placeholder={booking.fields.placeholder} /><small>{booking.fields.privacy}</small></label>
                 <label className="consent"><input type="checkbox" name="consent" /><span>{booking.fields.consent}</span></label>

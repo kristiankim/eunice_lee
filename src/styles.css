@@ -240,6 +240,10 @@ textarea { resize: vertical; padding: 14px; border: 1px solid #aab0a5; backgroun
 input[type='radio'], input[type='checkbox'] { width: 16px; height: 16px; margin: 0; accent-color: var(--olive); }
 .support-choices { margin-bottom: 34px; }
 .support-choices > div { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 20px; background: var(--cream); }
+.insurance-choices legend small { color: var(--muted); font-weight: 400; }
+.insurance-other { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.insurance-other > label { flex-shrink: 0; }
+.insurance-other > input { min-width: 0; padding-block: 6px; font-size: .75rem; }
 .message-field { display: block; margin-bottom: 30px; }
 .message-field small { display: block; margin-top: 8px; color: var(--muted); font-size: .68rem; line-height: 1.5; }
 .consent { align-items: flex-start; margin-bottom: 2px; }

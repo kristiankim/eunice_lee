@@ -16,6 +16,7 @@ const supportReasonOptions = new Set([
 ])
 const contactMethodOptions = new Set(['Email', 'Text', 'Phone', 'Not provided'])
 const stateLocationOptions = new Set(['NJ', 'NY', 'Other', 'Not provided'])
+const insuranceOptions = new Set(['Blue Cross Blue Shield', 'United Healthcare', 'Aetna', 'Cigna', 'Medicare', 'Other'])
 
 function clean(value: unknown, maxLength: number) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : ''
@@ -80,6 +81,14 @@ export async function POST(request: Request) {
   const contactMethod = clean(payload.contactMethod, 20) || 'Not provided'
   const stateLocation = clean(payload.stateLocation, 20) || 'Not provided'
   const sessionPreference = clean(payload.sessionPreference, 80)
+  const insuranceProviders = Array.isArray(payload.insuranceProviders)
+    ? [...new Set(payload.insuranceProviders.map((value) => clean(value, 80)).filter((value) => insuranceOptions.has(value)))]
+    : []
+  const insuranceOther = clean(payload.insuranceOther, 150)
+  const insurance = [
+    ...insuranceProviders.filter((provider) => provider !== 'Other'),
+    ...(insuranceOther ? [`Other: ${insuranceOther}`] : insuranceProviders.includes('Other') ? ['Other'] : []),
+  ].join(', ') || 'Not provided'
   const supportReasons = cleanSupportReasons(payload.supportReasons)
   const message = clean(payload.message, 2000)
   const consent = payload.consent === true
@@ -115,6 +124,7 @@ export async function POST(request: Request) {
   const safeContactMethod = escapeHtml(contactMethod)
   const safeStateLocation = escapeHtml(stateLocation)
   const safePreference = escapeHtml(sessionPreference)
+  const safeInsurance = escapeHtml(insurance)
   const safeSupportReasons = escapeHtml(supportReasons.join(', ') || 'Not provided')
   const safeMessage = escapeHtml(message || 'No message provided').replace(/\n/g, '<br />')
 
@@ -132,6 +142,7 @@ export async function POST(request: Request) {
         <p><strong>Preferred contact method:</strong> ${safeContactMethod}</p>
         <p><strong>State / location:</strong> ${safeStateLocation}</p>
         <p><strong>Session preference:</strong> ${safePreference}</p>
+        <p><strong>Insurance:</strong> ${safeInsurance}</p>
         <p><strong>Main reasons for seeking support:</strong> ${safeSupportReasons}</p>
         <p><strong>Message:</strong><br />${safeMessage}</p>
       `,
@@ -143,6 +154,7 @@ export async function POST(request: Request) {
         `Preferred contact method: ${contactMethod}`,
         `State / location: ${stateLocation}`,
         `Session preference: ${sessionPreference}`,
+        `Insurance: ${insurance}`,
         `Main reasons for seeking support: ${supportReasons.join(', ') || 'Not provided'}`,
         `Message: ${message || 'No message provided'}`,
       ].join('\n\n'),
